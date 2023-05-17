@@ -9,7 +9,12 @@ const userSchema = new Schema({
   email: String,
   description: String,
   profileImg: String,
-  tweets: Array,
+  tweets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Tweet",
+    },
+  ],
   followers: Array,
   following: Array,
   createdAt: Date,
