@@ -12,7 +12,7 @@ module.exports = async () => {
   const users = await User.find();
   for (const user of users) {
     for (let i = 0; i < faker.datatype.number({ min: 0, max: 20 }); i++) {
-      const tweet = Tweet.create({
+      const tweet = await Tweet.create({
         body: faker.lorem.paragraph(),
         author: user,
         createdAt: faker.date.between({
