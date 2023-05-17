@@ -19,8 +19,29 @@ const User = require("../models/User");
 faker.locale = "es";
 
 module.exports = async () => {
-  /**
-   * Escribir código del seeder aquí...
-   */
-  console.log("[Database] Se corrió el seeder de Users.");
+  const { faker } = require("@faker-js/faker");
+  const User = require("../models/User");
+
+  faker.locale = "es";
+
+  module.exports = async () => {
+    const users = [];
+
+    for (let i = 0; i < 20; i++) {
+      users.push({
+        firstname: faker.name.firstName(),
+        lastname: faker.name.lastName(),
+        username: faker.name.firstName().toLowerCase(),
+        email: faker.internet.email(),
+        description: faker.person.bio(),
+        profileImg: faker.image.avatar(),
+        tweets: [],
+        followers: [],
+        following: [],
+        createdAt: faker.defaultRefDate(),
+      });
+    }
+    await User.insertMany(users);
+    console.log("[Database] Se corrió el seeder de Users.");
+  };
 };
