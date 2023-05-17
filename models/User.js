@@ -1,7 +1,7 @@
 const { mongoose, Schema } = require("../db");
 
 // Crear esquema y modelo User...
-
+// [{ type: Schema.Types.ObjectId, ref: "User" }]
 const userSchema = new Schema({
   firstname: String,
   lastname: String,

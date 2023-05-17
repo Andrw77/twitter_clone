@@ -34,7 +34,6 @@ module.exports = async () => {
       email: faker.internet.email(),
       description: faker.lorem.sentence(),
       profileImg: faker.image.avatar(),
-      tweets: [],
       followers: [],
       following: [],
       createdAt: faker.date.between({

@@ -21,8 +21,11 @@ module.exports = async () => {
         }),
         likes: [],
       });
-      user.tweets.push(tweet);
+      console.log(user.tweets);
+      // console.log(tweet);
+      user.tweets.push(tweet._id);
     }
+    await user.save();
   }
   console.log("[Database] Se corrió el seeder de Tweets.");
 };
