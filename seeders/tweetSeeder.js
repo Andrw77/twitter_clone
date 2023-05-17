@@ -21,9 +21,7 @@ module.exports = async () => {
         }),
         likes: [],
       });
-      console.log(user.tweets);
-      // console.log(tweet);
-      user.tweets.push(tweet._id);
+      user.tweets.push(tweet);
     }
     await user.save();
   }
