@@ -4,7 +4,10 @@ const { mongoose, Schema } = require("../db");
 
 const tweetSchema = new Schema({
   body: String,
-  author: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   createdAt: Date,
   likes: Array,
 });

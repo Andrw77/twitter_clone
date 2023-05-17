@@ -24,24 +24,26 @@ module.exports = async () => {
 
   faker.locale = "es";
 
-  module.exports = async () => {
-    const users = [];
+  const users = [];
 
-    for (let i = 0; i < 20; i++) {
-      users.push({
-        firstname: faker.name.firstName(),
-        lastname: faker.name.lastName(),
-        username: faker.name.firstName().toLowerCase(),
-        email: faker.internet.email(),
-        description: faker.person.bio(),
-        profileImg: faker.image.avatar(),
-        tweets: [],
-        followers: [],
-        following: [],
-        createdAt: faker.defaultRefDate(),
-      });
-    }
-    await User.insertMany(users);
-    console.log("[Database] Se corrió el seeder de Users.");
-  };
+  for (let i = 0; i < 20; i++) {
+    const user = new User({
+      firstname: faker.name.firstName(),
+      lastname: faker.name.lastName(),
+      username: faker.name.firstName().toLowerCase(),
+      email: faker.internet.email(),
+      description: faker.lorem.sentence(),
+      profileImg: faker.image.avatar(),
+      tweets: [],
+      followers: [],
+      following: [],
+      createdAt: faker.date.between({
+        from: "2020-01-01T00:00:00.000Z",
+        to: "2030-01-01T00:00:00.000Z",
+      }),
+    });
+    users.push(user);
+  }
+  await User.insertMany(users);
+  console.log("[Database] Se corrió el seeder de Users.");
 };

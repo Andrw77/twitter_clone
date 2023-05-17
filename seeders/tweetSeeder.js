@@ -1,29 +1,28 @@
 const { faker } = require("@faker-js/faker");
-const Tweet = require("../models/User");
 
 faker.locale = "es";
 
 module.exports = async () => {
   const { faker } = require("@faker-js/faker");
   const Tweet = require("../models/Tweet");
+  const User = require("../models/User");
 
   faker.locale = "es";
 
-  module.exports = async () => {
-    const tweets = [];
-
-    for (let i = 0; i < 20; i++) {
-      tweets.push({
+  const users = await User.find();
+  for (const user of users) {
+    for (let i = 0; i < faker.datatype.number({ min: 0, max: 20 }); i++) {
+      const tweet = Tweet.create({
         body: faker.lorem.paragraph(),
-        author: {
-          type: Schema.Types.ObjectId,
-          ref: "User",
-        },
-        createdAt: faker.defaultRefDate(),
+        author: user,
+        createdAt: faker.date.between({
+          from: "2020-01-01T00:00:00.000Z",
+          to: "2030-01-01T00:00:00.000Z",
+        }),
         likes: [],
       });
+      user.tweets.push(tweet);
     }
-    await User.insertMany(tweets);
-    console.log("[Database] Se corrió el seeder de Tweets.");
-  };
+  }
+  console.log("[Database] Se corrió el seeder de Tweets.");
 };
