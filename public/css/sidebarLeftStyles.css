@@ -5,8 +5,27 @@
   position: fixed;
 }
 #div_aside {
-  width: 280px;
+  width: 150px;
   height: 100vh;
+}
+
+#btnTweeter {
+  width: 226px;
+  height: 52px;
+  background: #1d9bf0;
+  border-radius: 45px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 10px;
+  color: white;
+  z-index: 2;
+  transition: width 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #btnTweeter {
