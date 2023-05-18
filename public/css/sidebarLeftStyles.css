@@ -22,6 +22,10 @@
     left: 0;
 }
 
+#btnTweeter:hover{
+    background-color: #0983d5;
+}
+
 .sidebar_left_a{
     width: 226px;
     transition: width 0.3s ease;
