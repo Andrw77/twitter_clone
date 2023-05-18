@@ -4,7 +4,13 @@ const User = require("../models/User");
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function showFollowers(req, res) {
+  res.render("pages/followers");
+}
+
+async function showFollowing(req, res) {
+  res.render("pages/following");
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -26,7 +32,8 @@ async function destroy(req, res) {}
 
 module.exports = {
   index,
-  show,
+  showFollowers,
+  showFollowing,
   create,
   store,
   edit,

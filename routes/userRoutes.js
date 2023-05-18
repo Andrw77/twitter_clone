@@ -4,8 +4,9 @@ const userController = require("../controllers/userController");
 
 // router.post("/createTweet", userController.createTweet);
 
-// router.get("/:username/followers", userController.followerList);
+router.get("/followers", userController.showFollowers); //"/:username/followers"
 // router.get("/:username/folloing", userController.followerList);
+router.get("/following", userController.showFollowing);
 
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);

@@ -1,0 +1,53 @@
+* {
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+#back-link img {
+  height: 20px;
+  width: 20px;
+  margin: 20px;
+}
+
+#username h3 {
+  font-weight: 600;
+}
+#username span {
+  color: #647788;
+  font-weight: 600;
+}
+
+.header-links {
+  color: #000000;
+  font-weight: 600;
+}
+
+#user {
+  color: #000000;
+  font-weight: bolder;
+}
+
+#user-arroba {
+  color: #647788;
+  font-weight: 600;
+}
+
+#follow-btn {
+  width: 80px;
+  height: 32px;
+  background: #1d9bf0;
+  border-radius: 45px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+  border: none;
+}
+
+#follow-btn:hover {
+  background-color: rgb(26, 140, 216);
+  color: #ffffff;
+}
+
+.hover-effect:hover {
+  background-color: #f8f8f8;
+}

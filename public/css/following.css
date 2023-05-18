@@ -1,0 +1,71 @@
+* {
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+#navbar-links {
+  border-bottom: 1px solid #f3f3f3;
+}
+
+#back-link img {
+  height: 20px;
+  width: 20px;
+  margin: 20px;
+}
+
+#username h3 {
+  font-weight: 600;
+}
+#username span {
+  color: #647788;
+  font-weight: 600;
+}
+
+.header-links {
+  color: #000000;
+  font-weight: 600;
+}
+
+#user {
+  color: #000000;
+  font-weight: bolder;
+}
+
+#user-arroba {
+  color: #647788;
+  font-weight: 600;
+}
+
+#following-btn {
+  width: 105px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 45px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #000000;
+  border: 1px solid rgb(207, 217, 222);
+}
+
+.hover-effect:hover,
+.hover-effect:hover #following-btn {
+  background-color: #f8f8f8;
+}
+
+#following-btn::before {
+  content: "Following";
+  color: #000000;
+}
+
+#following-btn:hover::before {
+  display: none;
+}
+
+#following-btn:hover::after {
+  content: "Unfollow";
+  color: red;
+}
+
+#following-btn:hover {
+  border: 1px solid rgb(232, 34, 12);
+}
