@@ -12,6 +12,30 @@
         <div class="row align-items-center">
           <div class="col-6">
             <h3 class="main-font"><strong>Home</strong></h3>
+            <div class="row p-3 g-0" style="border: 1px solid #f3f3f3">
+              <div class="d-flex col-2 justify-content-center">
+                <img
+                  class="img-fluid rounded-circle"
+                  style="width: 50px; height: 50px"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                  alt="User image"
+                />
+              </div>
+              <div class="col-10">
+                <form action="">
+                  <input
+                    class="col-12 tweet-area fs-5"
+                    style="border: none"
+                    type="text-area"
+                    placeholder="What's happening?"
+                  />
+                  <span class="col-9 d-inline-block"></span>
+                  <span class="col-2 d-inline-block">
+                    <button type="submit" class="tweet-button tweet-font">Tweet</button>
+                  </span>
+                </form>
+              </div>
+            </div>
             <%for (user of users) {%>
             <div class="row p-3 g-0" style="border: 1px solid #f3f3f3">
               <div class="d-flex col-2 justify-content-center">
