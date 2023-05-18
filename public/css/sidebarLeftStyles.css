@@ -1,0 +1,93 @@
+
+
+#sidebarLeft{width: 280px; height: 100vh; border-right: 1px solid rgb(236, 225, 225)}
+
+
+#btnTweeter{
+    width: 226px;
+    height: 52px;
+    background: #1D9BF0;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 10px;
+    color: white;
+    z-index: 2;
+    transition: width 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sidebar_left_a{
+    width: 226px;
+    transition: width 0.3s ease;
+}
+
+.text_sidebar_left{
+    color: black;
+}
+
+.nav-link.active svg path{
+    fill: white;
+}
+
+.nav-link.active div p{
+    color: white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color:#1D9BF0;
+}
+
+.dropdown-menu {
+--bs-dropdown-link-hover-bg: #1D9BF0;
+--bs-dropdown-link-hover-color: white;
+}
+  
+  #btnTweeter2 {
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 8px;
+  }
+
+  #li_profile_dropdown a:hover svg path{
+    fill: white;
+  }
+  
+  @media (max-width: 1300px) {
+    #btnTweeter {
+    opacity: 0;
+      width: 51px;
+      transition: opacity 0.5s ease, width 0.3s ease;
+    }
+  
+    #btnTweeter2 {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .text_sidebar_left{
+      display: none; 
+    }
+
+    .div_main_links{
+       width: 20px; 
+    }
+    .sidebar_left_a{
+        transition: width 0.3s ease;
+        width: 52px;
+    }
+
+    div#sidebarLeft{
+        width: 100px;
+        transition: width 0.3s ease;
+    }
+  }
