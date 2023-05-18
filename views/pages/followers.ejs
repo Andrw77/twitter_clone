@@ -17,24 +17,17 @@
                   <img src="/img/flecha.svg" alt="Back" />
                 </a>
               </div>
-              <div id="username" class="d-flex flex-column mb-5">
+              <div id="username" class="d-flex flex-column">
                 <h3>Leia Organa</h3>
                 <span>@leiaorgana</span>
               </div>
             </div>
-            <!-- <ul class="nav nav-underline d-flex justify-content-around mb-3">
-              <li class="nav-item">
-                <a class="nav-link header-links" href="/users/followers">Followers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link header-links" href="/users/following">Following</a>
-              </li>
-            </ul> -->
             <nav id="navbar-features" class="d-flex justify-content-around">
               <a href="/users/followers"> Followers </a>
               <a href="/users/following"> Following </a>
             </nav>
             <div class="container-fluid" id="usersList">
+              <% for(userFollower of userFollowers){ %>
               <div class="row p-3 g-0 hover-effect">
                 <div class="d-flex col-2 justify-content-center">
                   <img
@@ -47,8 +40,10 @@
                 <div class="col-10">
                   <div id="follow-row" class="d-flex justify-content-between">
                     <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Pedro Hernandez</span>
-                      <span id="user-arroba">@pedrohernandez</span>
+                      <span id="user" class="d-flex pb-1 pr-1 main-font"
+                        ><%=userFollower.firstname%> <%=userFollower.lastname %></span
+                      >
+                      <span id="user-arroba">@<%=userFollower.username%></span>
                     </div>
                     <div class="d-flex align-items-center">
                       <button id="follow-btn">Follow</button>
@@ -56,54 +51,7 @@
                   </div>
                 </div>
               </div>
-
-              <!-- SEPARACIÓN DE USUARIOS -->
-
-              <div class="row p-3 g-0 hover-effect">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <div id="follow-row" class="d-flex justify-content-between">
-                    <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Martin Gutierrez</span>
-                      <span id="user-arroba">@martingutierrez</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button id="follow-btn">Follow</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SEPARACIÓN DE USUARIOS -->
-
-              <div class="row p-3 g-0 hover-effect">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <div id="follow-row" class="d-flex justify-content-between">
-                    <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Paola Sanchez</span>
-                      <span id="user-arroba">@paolasanchez</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button id="follow-btn">Follow</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <% } %>
             </div>
           </div>
         </div>

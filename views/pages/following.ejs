@@ -22,20 +22,14 @@
                 <span>@leiaorgana</span>
               </div>
             </div>
-            <!-- <ul class="nav nav-underline d-flex justify-content-around mb-3">
-              <li class="nav-item">
-                <a class="nav-link header-links" href="/users/followers">Followers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link header-links" href="/users/following">Following</a>
-              </li>
-            </ul> -->
+
             <div id="navbar-features" class="d-flex justify-content-around">
               <div><a href="/users/followers"> Followers </a></div>
               <div><a href="/users/following"> Following </a></div>
             </div>
 
             <div class="container-fluid" id="usersList">
+              <% for(userFollowing of userFollowings) { %>
               <div class="row p-3 g-0 hover-effect">
                 <div class="d-flex col-2 justify-content-center">
                   <img
@@ -48,8 +42,10 @@
                 <div class="col-10">
                   <div id="follow-row" class="d-flex justify-content-between">
                     <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Pedro Hernandez</span>
-                      <span id="user-arroba">@pedrohernandez</span>
+                      <span id="user" class="d-flex pb-1 pr-1 main-font"
+                        ><%=userFollowing.firstname%> <%=userFollowing.lastname%></span
+                      >
+                      <span id="user-arroba">@<%=userFollowing.username%></span>
                     </div>
                     <div class="d-flex align-items-center">
                       <button id="following-btn"></button>
@@ -57,54 +53,7 @@
                   </div>
                 </div>
               </div>
-
-              <!-- SEPARACIÓN DE USUARIOS -->
-
-              <div class="row p-3 g-0 hover-effect">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <div id="follow-row" class="d-flex justify-content-between">
-                    <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Martin Gutierrez</span>
-                      <span id="user-arroba">@martingutierrez</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button id="following-btn"></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SEPARACIÓN DE USUARIOS -->
-
-              <div class="row p-3 g-0 hover-effect">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <div id="follow-row" class="d-flex justify-content-between">
-                    <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font">Paola Sanchez</span>
-                      <span id="user-arroba">@paolasanchez</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button id="following-btn"></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <% } %>
             </div>
           </div>
         </div>

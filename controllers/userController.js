@@ -5,11 +5,13 @@ async function index(req, res) {}
 
 // Display the specified resource.
 async function showFollowers(req, res) {
-  res.render("pages/followers");
+  const userFollowers = await User.find({ followers: { $exists: true } });
+  res.render("pages/followers", { userFollowers });
 }
 
 async function showFollowing(req, res) {
-  res.render("pages/following");
+  const userFollowings = await User.find({ following: { $exists: true } });
+  res.render("pages/following", { userFollowings });
 }
 
 // Show the form for creating a new resource

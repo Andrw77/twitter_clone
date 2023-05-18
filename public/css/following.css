@@ -2,8 +2,16 @@
   font-family: "Inter", "Roboto", sans-serif;
 }
 
+.background-container {
+  width: 100%;
+}
+
 #header-container {
   position: fixed;
+  backdrop-filter: blur(0.4rem);
+  width: calc(50% - 12px); /* El ancho de la columna de usuarios menos los márgenes */
+  padding: 20px;
+  top: 0;
 }
 
 #navbar-features {
