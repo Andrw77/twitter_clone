@@ -45,7 +45,6 @@ module.exports = async () => {
   }
 
   for (const user of users) {
-    pepito;
     for (let i = 0; i < faker.datatype.number({ min: 0, max: 20 }); i++) {
       if (!user.following.includes(users[i]._id) && users[i] != user) {
         user.following.push(users[i]);

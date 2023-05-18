@@ -1,0 +1,108 @@
+* {
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+body {
+  background-color: #094064;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-weight: bold;
+  color: #353535;
+}
+
+.main-container {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#advice-message {
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+#form-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 65px;
+  height: 700px;
+}
+
+#form-col input {
+  height: 44px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  background-color: #1d9bf0;
+  border-radius: 40px;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #0983d5;
+  color: #ffffff;
+}
+
+#account-message {
+  display: flex;
+  justify-content: center;
+  color: #353535;
+  font-size: 1.2rem;
+}
+#account-message a {
+  color: #1d9bf0;
+}
+#account-message a:hover {
+  color: #0983d5;
+}
+
+#welcome-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  height: 700px;
+  background-color: #1d9bf0;
+}
+
+#twitter-icon {
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  height: 100px;
+  width: 100px;
+}
+
+#welcome-message {
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+  margin: 10px;
+}
+
+#welcome-message img {
+  height: 40px;
+  width: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+  .main-container {
+    border-radius: 15px;
+    margin: 20px;
+  }
+
+  #welcome-col {
+    display: none;
+  }
+}
