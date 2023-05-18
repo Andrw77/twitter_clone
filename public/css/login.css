@@ -88,6 +88,7 @@ h1 {
   position: absolute;
   bottom: 50px;
   left: 40px;
+  margin: 10px;
 }
 
 #welcome-message img {
