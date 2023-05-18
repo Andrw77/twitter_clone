@@ -9,18 +9,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
-#sideBarRight{
-    position: fixed;
-    right: 0px;
-}
-
 .miniatura{
     height: 50px;
     width: 50px;
 }
 .wHappeningBox {
-    width: 350px;
-    height: 300px;
+    width: 400px;
+    height: 350px;
     left: 1225px;
     top: 18px;
     background: #F7F9F9;
@@ -47,11 +42,11 @@
 }
 
 .whoFollowBox {
-    width: 350px;
-    height: 384px;
+    width: 400px;
+    height: 400px;
     left: 825px;
     top: 334px;
-
+    padding: 3px 20px 20px 20px;
     background: #F7F9F9;
     border-radius: 15px;
 }
@@ -67,5 +62,25 @@
     font-weight: 600;
 }
 
+.whoFollowBtn:hover {
+    background-color: rgb(26, 140, 216);
+  }
+
+#sideBarRight{
+    position: inline-block;
+}
+#sideBarRight{
+position: fixed;
+right: 500px;
+top: 0;
+}
+
+@media (max-width: 2200px) {
+    #sideBarRight{
+        position: fixed;
+        right: 400px;
+        top: 0;
+    }
+}
 /*termina aside right
 /* Rectangle 3 */
