@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #sidebarLeft {
   width: 280px;
   height: 100vh;
@@ -7,6 +8,30 @@
 #div_aside {
   width: 150px;
   height: 100vh;
+=======
+
+
+#sidebarLeft{width: 280px; height: 100vh; border-right: 1px solid #F3F3F3; position: fixed;}
+#div_aside{width: 160px; height: 100vh;}
+
+#btnTweeter{
+    width: 226px;
+    height: 52px;
+    background: #1D9BF0;
+    border-radius: 45px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 10px;
+    color: white;
+    z-index: 2;
+    transition: width 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+>>>>>>> Stashed changes
 }
 
 #btnTweeter {

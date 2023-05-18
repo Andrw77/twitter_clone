@@ -27,3 +27,8 @@
 .tweet-area {
   height: 50px;
 }
+
+.tweet-row{
+  border-top: 1px solid #F3F3F3;
+  border-top: 1px solid #F3F3F3;
+}
