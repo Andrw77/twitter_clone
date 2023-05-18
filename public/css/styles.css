@@ -10,9 +10,8 @@
 }
 
 #sideBarRight{
-    position: absolute;
-    right: -110px;
-    top: 0;
+    position: fixed;
+    right: 0px;
 }
 
 .miniatura{

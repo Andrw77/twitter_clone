@@ -8,9 +8,9 @@
     <div class="container d-flex flex-row">
       <%- include("../partials/sideBarLeft") %>
       <div id="div_aside" class="col-3"></div>
-      <div class="container-fluid d-flex flex-column flex-shrink-0 p-3">
+      <div class="container-fluid d-flex flex-column flex-shrink-0 p-3 col-6" style="margin: 0">
         <div class="row align-items-center">
-          <div class="col-6">
+          <div>
             <h3 class="main-font"><strong>Home</strong></h3>
             <div class="row p-3 g-0" style="border: 1px solid #f3f3f3">
               <div class="d-flex col-2 justify-content-center">
@@ -63,41 +63,8 @@
           </div>
         </div>
       </div>
-      <div class="row" style="position: relative">
-        <%- include("../partials/sideBarLeft") %>
-        <div class="container-fluid d-flex flex-column p-3 col-6 col-md-7">
-          <div class="row align-items-center">
-            <div>
-              <h3 class="main-font"><strong>Home</strong></h3>
-              <%for (user of users) {%>
-              <div class="row p-3 g-0" style="border: 1px solid #f3f3f3">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <span class="d-inline-block pb-1 pr-1 main-font"
-                    ><strong><%=user.firstname%> <%=user.lastname%></strong></span
-                  >
-                  <span>@pedrohernandez - 4h</span>
-                  <p class="text-left main-font">
-                    One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                    transformed in his bed into a horrible vermin.
-                  </p>
-                  <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-                  <span>5</span>
-                </div>
-              </div>
-              <%}%>
-            </div>
-          </div>
-        </div>
-        <%- include("../partials/sideBarRight") %>
-      </div>
+      <div id="div_aside" class="col-3"></div>
+      <%- include("../partials/sideBarRight") %>
     </div>
     <script src="https://kit.fontawesome.com/1c469dc273.js" crossorigin="anonymous"></script>
     <script

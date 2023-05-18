@@ -1,7 +1,7 @@
 
 
 #sidebarLeft{width: 280px; height: 100vh; border-right: 1px solid #F3F3F3; position: fixed;}
-#div_aside{width: 280px; height: 100vh;}
+#div_aside{width: 150px; height: 100vh;}
 
 #btnTweeter{
     width: 226px;
