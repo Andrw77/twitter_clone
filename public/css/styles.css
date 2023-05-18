@@ -9,6 +9,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
+#sideBarRight{
+    position: absolute;
+    right: -110px;
+    top: 0;
+}
+
+.miniatura{
+    height: 50px;
+    width: 50px;
+}
 .wHappeningBox {
     width: 350px;
     height: 300px;
