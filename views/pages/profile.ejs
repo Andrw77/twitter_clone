@@ -5,9 +5,10 @@
   </head>
 
   <body>
-    <div class="container" style="position: relative">
+    <div class="container d-flex flex-row">
       <%- include("../partials/sideBarLeft") %>
-      <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3">
+      <div id="div_aside" class="col-3"></div>
+      <div class="container-fluid d-flex flex-column flex-shrink-0 p-3 col-6" style="margin: 0">
         <div class="row align-items-center">
           <div>
             <h3 class="main-font"><strong>Home</strong></h3>
@@ -62,6 +63,7 @@
           </div>
         </div>
       </div>
+      <div id="div_aside" class="col-3"></div>
       <%- include("../partials/sideBarRight") %>
     </div>
     <script src="https://kit.fontawesome.com/1c469dc273.js" crossorigin="anonymous"></script>
