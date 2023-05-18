@@ -5,6 +5,7 @@ const { mongoose, Schema } = require("../db");
 const userSchema = new Schema({
   firstname: String,
   lastname: String,
+  password: String,
   username: String,
   email: String,
   description: String,
@@ -15,8 +16,18 @@ const userSchema = new Schema({
       ref: "Tweet",
     },
   ],
-  followers: Array,
-  following: Array,
+  followers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  following: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   createdAt: Date,
 });
 
