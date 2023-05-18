@@ -1,1 +1,60 @@
 /* Colocar aquí CSS "propio". */
+
+/*Aside right*/
+.wHappeningBox,
+.wHappeningTitle,
+.wHappeningGrayText,
+.wHappeningBlackText {
+    font-family: 'Roboto', sans-serif;
+}
+
+.wHappeningBox {
+    width: 350px;
+    height: 300px;
+    left: 1225px;
+    top: 18px;
+    background: #F7F9F9;
+    border-radius: 15px;
+}
+
+.asideRightTitle {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.asideRightGrayText {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #647788;
+}
+
+.asideRightBlackText {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.whoFollowBox {
+    width: 350px;
+    height: 384px;
+    left: 825px;
+    top: 334px;
+
+    background: #F7F9F9;
+    border-radius: 15px;
+}
+
+.whoFollowBtn {
+    width: 79px;
+    height: 32px;
+    background: #1D9BF0;
+    border-radius: 45px;
+    font-family: 'Inter' sans-serif;
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+/*termina aside right
