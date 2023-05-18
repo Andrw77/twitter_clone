@@ -2,8 +2,12 @@
   font-family: "Inter", "Roboto", sans-serif;
 }
 
-#navbar-links {
-  border-bottom: 1px solid #f3f3f3;
+#header-container {
+  position: fixed;
+}
+
+#navbar-features {
+  margin-top: 100px;
 }
 
 #back-link img {
