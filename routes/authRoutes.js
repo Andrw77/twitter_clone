@@ -2,6 +2,7 @@ const passport = require("passport");
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authController");
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
 /**
  * Se sugiere usar este archivo para crear rutas relativas al proceso de
@@ -12,7 +13,6 @@ router.get("/login", authController.showLogin);
 router.get("/register", authController.showRegister);
 router.post("/login", authController.login);
 router.post("/register", authController.store);
-
-// router.post("/logout", authController.logout);
+router.get("/logout", ensureAuthenticated, authController.logout);
 
 module.exports = router;
