@@ -16,7 +16,7 @@ router.get("/following", userController.showFollowing);
 
 //------------------------------------------------------------------------
 
-// router.get("/", userController.index);
+router.get("/", userController.index);
 // router.get("/crear", userController.create);
 // router.get("/:id", userController.show);
 // router.post("/", userController.store);

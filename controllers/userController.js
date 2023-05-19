@@ -1,7 +1,9 @@
 const User = require("../models/User");
 
 // Display a listing of the resource.
-async function index(req, res) {}
+async function index(req, res) {
+  return res.render("pages/profile");
+}
 
 // Display the specified resource.
 async function showFollowers(req, res) {

@@ -66,9 +66,7 @@
     background-color: rgb(26, 140, 216);
   }
 
-#sideBarRight{
-    position: inline-block;
-}
+
 #sideBarRight{
 position: fixed;
 right: 500px;

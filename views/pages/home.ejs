@@ -9,57 +9,55 @@
       <%- include("../partials/sideBarLeft") %>
       <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3">
         <div class="row align-items-center">
-          <div>
-            <h3 class="main-font"><strong>Home</strong></h3>
-            <div class="row p-3 g-0">
-              <div class="d-flex col-2 justify-content-center">
-                <img
-                  class="img-fluid rounded-circle"
-                  style="width: 50px; height: 50px"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                  alt="User image"
-                />
-              </div>
-              <div class="col-10">
-                <form action="">
-                  <input
-                    class="col-12 tweet-area fs-5"
-                    style="border: none"
-                    type="text-area"
-                    placeholder="What's happening?"
-                  />
-                  <span class="col-9 d-inline-block"></span>
-                  <span class="col-2 d-inline-block">
-                    <button type="submit" class="tweet-button tweet-font">Tweet</button>
-                  </span>
-                </form>
-              </div>
+          <h3 class="main-font"><strong>Home</strong></h3>
+          <div class="row p-3 g-0">
+            <div class="d-flex col-2 justify-content-center">
+              <img
+                class="img-fluid rounded-circle"
+                style="width: 50px; height: 50px"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                alt="User image"
+              />
             </div>
-            <%for (user of users) {%>
-            <div class="row p-3 g-0 tweet-row">
-              <div class="d-flex col-2 justify-content-center">
-                <img
-                  class="img-fluid rounded-circle"
-                  style="width: 50px; height: 50px"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                  alt="User image"
+            <div class="col-10">
+              <form action="">
+                <input
+                  class="col-12 tweet-area fs-5"
+                  style="border: none"
+                  type="text-area"
+                  placeholder="What's happening?"
                 />
-              </div>
-              <div class="col-10">
-                <span class="d-inline-block pb-1 pr-1 main-font"
-                  ><strong><%=user.firstname%> <%=user.lastname%></strong></span
-                >
-                <span>@pedrohernandez - 4h</span>
-                <p class="text-left main-font">
-                  One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                  transformed in his bed into a horrible vermin.
-                </p>
-                <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-                <span>5</span>
-              </div>
+                <span class="col-9 d-inline-block"></span>
+                <span class="col-2 d-inline-block">
+                  <button type="submit" class="tweet-button tweet-font">Tweet</button>
+                </span>
+              </form>
             </div>
-            <%}%>
           </div>
+          <%for (user of users) {%>
+          <div class="row p-3 g-0 tweet-row">
+            <div class="d-flex col-2 justify-content-center">
+              <img
+                class="img-fluid rounded-circle"
+                style="width: 50px; height: 50px"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                alt="User image"
+              />
+            </div>
+            <div class="col-10">
+              <span class="d-inline-block pb-1 pr-1 main-font"
+                ><strong><%=user.firstname%> <%=user.lastname%></strong></span
+              >
+              <span>@pedrohernandez - 4h</span>
+              <p class="text-left main-font">
+                One morning, when Gregor Samsa woke from troubled dreams, he found himself
+                transformed in his bed into a horrible vermin.
+              </p>
+              <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
+              <span>5</span>
+            </div>
+          </div>
+          <%}%>
         </div>
       </div>
       <%- include("../partials/sideBarRight") %>
