@@ -70,7 +70,7 @@ module.exports = (app) => {
     console.log("[Passport] Deserialize User"); // To-Do: Borrar este `console.log` luego de hacer pruebas.
     // Completar código...
     try {
-      const user = await User.findById(id);
+      const user = await User.findById(id).populate("tweets");
       done(null, user); // Usuario queda disponible en req.user.
     } catch (err) {
       done(err);

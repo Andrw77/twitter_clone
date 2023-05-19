@@ -7,12 +7,14 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function showFollowers(req, res) {
-  const userFollowers = await User.find({ followers: { $exists: true } });
+  const userId = await User.findById(req.user.id).populate("followers");
+  const userFollowers = userId.followers;
   res.render("pages/followers", { userFollowers });
 }
 
 async function showFollowing(req, res) {
-  const userFollowings = await User.find({ following: { $exists: true } });
+  const userId = await User.findById(req.user.id).populate("following");
+  const userFollowings = userId.following;
   res.render("pages/following", { userFollowings });
 }
 

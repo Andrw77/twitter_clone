@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
+const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
 
 // router.post("/createTweet", userController.createTweet);
 
-router.get("/followers", userController.showFollowers); //"/:username/followers"
+router.get("/followers", ensureAuthenticate, userController.showFollowers); //"/:username/followers"
 // router.get("/:username/folloing", userController.followerList);
-router.get("/following", userController.showFollowing);
+router.get("/following", ensureAuthenticate, userController.showFollowing);
 
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
