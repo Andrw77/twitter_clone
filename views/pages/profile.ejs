@@ -8,7 +8,7 @@
     <div class="container" style="position: relative">
       <div class="row g-0">
         <%- include("../partials/sideBarLeft") %>
-        <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-md-6">
+        <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-lg-6">
           <!-- Header con blur -->
           <div id="header-container" class="d-flex">
             <div id="back-link" class="me-3" style="padding-left: 0px">
@@ -17,8 +17,8 @@
               </a>
             </div>
             <div id="username" class="d-flex flex-column ms-5">
-              <h3>Leia Organa</h3>
-              <span>tweets</span>
+              <h3><%=user.firstname%></h3>
+              <span><%=user.tweets.length%>tweets</span>
             </div>
           </div>
 
@@ -28,14 +28,18 @@
           <!-- Div para la información del usuario -->
           <div id="profile_info">
             <div id="profile_info_2" class="ms-2">
-              <h1 id="profile_name">Leia Organa</h1>
+              <h1 id="profile_name"><%=user.firstname%> <%=user.lastname%></h1>
               <div class="d-flex justify-content-between">
-                <div><span id="profile_username">@leiaorgana62</span></div>
+                <div><span id="profile_username"><%=user.username%></span></div>
                 <div class="justify-content-end">
-                  <span class="profile_numbers">25</span>
-                  <span class="profile_ff">Followers</span>
-                  <span class="profile_numbers">25</span>
-                  <span class="profile_ff">Following</span>
+                  <a href="/users/<%=user.username%>followers">
+                    <span class="profile_numbers"><%=user.followers.length%></span>
+                    <span class="profile_ff">Followers</span></a
+                  >
+                  <a href="/users/<%=user.username%>following"
+                    ><span class="profile_numbers"><%=user.following.length%></span>
+                    <span class="profile_ff">Following</span></a
+                  >
                 </div>
               </div>
             </div>
@@ -79,6 +83,7 @@
             <!-- Aquí termina el div para la "navegación del perfil" -->
           </div>
           <!-- Aqui comienzan los tweets del usuario, debemos agregar for para poder listar los tweets -->
+          <% for (const tweet of user.tweets) {%>
           <div class="row p-3 g-0 tweet-row">
             <div class="d-flex col-2 justify-content-center">
               <img
@@ -89,12 +94,11 @@
               />
             </div>
             <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"><strong>Leia Organa</strong></span>
-              <span>@pedrohernandez - 4h</span>
-              <p class="text-left main-font">
-                One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                transformed in his bed into a horrible vermin.
-              </p>
+              <span class="d-inline-block pb-1 pr-1 main-font"
+                ><strong><%=user.firstname%> <%=user.lastname%></strong></span
+              >
+              <span><%=user.username%> - 4h</span>
+              <p class="text-left main-font"><%=tweet.body%></p>
               <div id="likes-delete-box" class="d-flex justify-content-between">
                 <div id="likes">
                   <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
@@ -113,90 +117,7 @@
               </div>
             </div>
           </div>
-
-          <div class="row p-3 g-0 tweet-row">
-            <div class="d-flex col-2 justify-content-center">
-              <img
-                class="img-fluid rounded-circle"
-                style="width: 50px; height: 50px"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                alt="User image"
-              />
-            </div>
-            <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"><strong>Leia Organa</strong></span>
-              <span>@pedrohernandez - 4h</span>
-              <p class="text-left main-font">
-                One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                transformed in his bed into a horrible vermin.
-              </p>
-              <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-              <span>5</span>
-            </div>
-          </div>
-
-          <div class="row p-3 g-0 tweet-row">
-            <div class="d-flex col-2 justify-content-center">
-              <img
-                class="img-fluid rounded-circle"
-                style="width: 50px; height: 50px"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                alt="User image"
-              />
-            </div>
-            <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"><strong>Leia Organa</strong></span>
-              <span>@pedrohernandez - 4h</span>
-              <p class="text-left main-font">
-                One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                transformed in his bed into a horrible vermin.
-              </p>
-              <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-              <span>5</span>
-            </div>
-          </div>
-
-          <div class="row p-3 g-0 tweet-row">
-            <div class="d-flex col-2 justify-content-center">
-              <img
-                class="img-fluid rounded-circle"
-                style="width: 50px; height: 50px"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                alt="User image"
-              />
-            </div>
-            <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"><strong>Leia Organa</strong></span>
-              <span>@pedrohernandez - 4h</span>
-              <p class="text-left main-font">
-                One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                transformed in his bed into a horrible vermin.
-              </p>
-              <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-              <span>5</span>
-            </div>
-          </div>
-
-          <div class="row p-3 g-0 tweet-row">
-            <div class="d-flex col-2 justify-content-center">
-              <img
-                class="img-fluid rounded-circle"
-                style="width: 50px; height: 50px"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                alt="User image"
-              />
-            </div>
-            <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"><strong>Leia Organa</strong></span>
-              <span>@pedrohernandez - 4h</span>
-              <p class="text-left main-font">
-                One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                transformed in his bed into a horrible vermin.
-              </p>
-              <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-              <span>5</span>
-            </div>
-          </div>
+          <%}%>
           <!-- Aqui terminan los tweets -->
         </div>
         <%- include("../partials/sideBarRight") %>
