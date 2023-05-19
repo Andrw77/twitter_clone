@@ -10,8 +10,9 @@
   position: fixed;
   backdrop-filter: blur(0.4rem);
   width: calc(50% - 12px); /* El ancho de la columna de usuarios menos los márgenes */
-  padding: 20px;
+  padding: 20px 20px 20px 12px;
   top: 0;
+  max-width: 692px;
 }
 
 #navbar-features {

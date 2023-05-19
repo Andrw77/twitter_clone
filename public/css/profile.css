@@ -1,48 +1,105 @@
-#profile_portrait{
-    width: 100%;
-    height: 200px;
-    background-color: blue;
-    margin-top: 66px;
-}
-#profile_info{
-    position: relative;
-    width: 100%;
-    height: 200px;
-    background-color: rgb(203, 75, 75);
+#profile_portrait {
+  width: 100%;
+  height: 200px;
+  background-color: #1d9bf0;
+  margin-top: 90px;
 }
 
-#div_profile_img{
-    position: absolute;
-    top: -70px;
-    left: 10px;
-    width: 140px;
-    height: 140px;
-    border-radius: 70px;
-    border: 7px solid #ffffff;
-    padding: -2px 7px 5px 7px;
+#profile_info {
+  position: relative;
+  width: 100%;
+  height: 252px;
+  padding-left: 30px;
+  padding-right: 39px;
 }
 
-#profile_img{
-   width: 101%;
-   height: 106%;
-   border-radius: 70px; 
+#div_profile_img {
+  position: absolute;
+  top: -70px;
+  left: 10px;
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  border: 7px solid #ffffff;
+  overflow: hidden;
 }
 
-#edit_profile{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 32px;
-    width: 80px;
+#profile_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 70px;
+  object-fit: cover;
 }
 
-#btn_edit_profile{
-    font-size: 0.9rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 32px;
-    width: 120px;
-    border-radius: 50px;
+#edit_profile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  width: 80px;
 }
 
+#btn_edit_profile {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 15px;
+  right: 38px;
+  height: 32px;
+  width: 120px;
+  border-radius: 50px;
+  padding-top: 5px;
+  background-color: #1d9bf0;
+  color: white;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+}
+
+#profile_info_2 {
+  margin-top: 100px;
+}
+
+#profile_name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+#profile_username {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #647788;
+}
+
+.profile_numbers {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+#profile_ff {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #647788;
+}
+
+#nav_letter {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}

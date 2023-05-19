@@ -1,27 +1,7 @@
 #sidebarLeft {
   width: 280px;
   height: 100vh;
-  border-right: 1px solid #f3f3f3;
   position: fixed;
-}
-
-#btnTweeter {
-  width: 226px;
-  height: 52px;
-  background: #1d9bf0;
-  border-radius: 45px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  margin-top: 10px;
-  color: white;
-  z-index: 2;
-  transition: width 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 #btnTweeter {
@@ -50,6 +30,7 @@
 .sidebar_left_a {
   width: 226px;
   transition: width 0.3s ease;
+  padding: 8px 0px;
 }
 
 .text_sidebar_left {
