@@ -23,10 +23,16 @@
               </div>
             </div>
 
-            <div id="navbar-features" class="d-flex justify-content-around">
-              <div><a href="/users/followers"> Followers </a></div>
-              <div><a href="/users/following"> Following </a></div>
-            </div>
+            <nav id="navbar-features" class="d-flex justify-content-around pb-3">
+              <div style="width: 50%; text-align: center">
+                <a class="follow-status pb-3" href="/users/followers"> Followers </a>
+              </div>
+              <div style="width: 50%; text-align: center">
+                <a id="following-link" class="follow-status pb-3" href="/users/following">
+                  Following
+                </a>
+              </div>
+            </nav>
 
             <div class="container-fluid" id="usersList">
               <% for(userFollowing of userFollowings) { %>
