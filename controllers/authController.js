@@ -25,7 +25,14 @@ async function login(req, res) {
 }
 
 // Show the form for creating a new resource
-async function create(req, res) {}
+async function logout(req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/auth/login");
+  });
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {
@@ -83,7 +90,7 @@ module.exports = {
   showLogin,
   showRegister,
   login,
-  create,
+  logout,
   store,
   edit,
   update,

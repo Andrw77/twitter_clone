@@ -10,6 +10,8 @@ const passport = require("./passport");
 const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 
+const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
+
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +19,7 @@ app.set("view engine", "ejs");
 
 sessions(app);
 passport(app);
+app.use(makeUserAvailableInViews);
 routes(app);
 
 app.listen(APP_PORT, () => {

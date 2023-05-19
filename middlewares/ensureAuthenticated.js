@@ -9,7 +9,7 @@ function ensureAuthenticated(req, res, next) {
     return next();
   } else {
     req.session.redirectTo = req.originalUrl;
-    res.redirect("/login"); // Cambiar "/login" por la ruta a donde se quiere redirigir al usuario. También se puede dejar como está.
+    res.redirect("/auth/login"); // Cambiar "/login" por la ruta a donde se quiere redirigir al usuario. También se puede dejar como está.
   }
 }
 
