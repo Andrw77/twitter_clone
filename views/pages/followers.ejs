@@ -25,10 +25,14 @@
           </div>
           <nav id="navbar-features" class="d-flex justify-content-around pb-3">
             <div style="width: 50%; text-align: center">
-              <a id="follower-link" class="pb-3" href="/users/followers"> Followers </a>
+              <a id="follower-link" class="pb-3" href="/users/<%=user.username%>/followers">
+                Followers
+              </a>
             </div>
             <div style="width: 50%; text-align: center">
-              <a class="follow-status pb-3" href="/users/following"> Following </a>
+              <a class="follow-status pb-3" href="/users/<%=user.username%>/following">
+                Following
+              </a>
             </div>
           </nav>
           <div class="container-fluid" id="usersList">

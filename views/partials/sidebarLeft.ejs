@@ -43,6 +43,7 @@
           </div>
         </a>
       </li>
+      <% if (user) {%>
       <li class="nav-item w-100">
         <a href="/users/<%=user.username%>" class="sidebar_left_a nav-link link-dark ms-1">
           <div class="div_main_links d-flex flex-row" style="height: 30px">
@@ -66,6 +67,8 @@
           </div>
         </a>
       </li>
+      <% } %>
+
       <li class="w-100" style="display: flex; justify-content: center; position: relative">
         <button id="btnTweeter" class="mt-5" style="border: none">
           <a href="/" class="nav-link" style="color: white">Tweet </a>
@@ -90,6 +93,7 @@
         </svg>
       </li>
     </ul>
+    <% if (user) {%>
     <div class="dropdown">
       <a
         href="#"
@@ -150,5 +154,6 @@
         </li>
       </ul>
     </div>
+    <%} %>
   </div>
 </aside>

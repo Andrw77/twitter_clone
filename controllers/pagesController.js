@@ -19,8 +19,8 @@ const Tweet = require("../models/Tweet");
 const User = require("../models/User");
 
 async function showHome(req, res) {
-  const users = await User.find().populate("tweets");
-  res.render("pages/home", { users });
+  const allUsers = await User.find().populate("tweets");
+  res.render("pages/home", { allUsers });
 }
 
 async function showContact(req, res) {

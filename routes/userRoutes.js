@@ -5,10 +5,10 @@ const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
 
 // router.post("/createTweet", userController.createTweet);
 
-router.get("/:username/followers", userController.showFollowers); //"/:username/followers"
+router.get("/:username/followers", ensureAuthenticate, userController.showFollowers); //"/:username/followers"
 // router.get("/:username/folloing", userController.followerList);
-router.get("/:username/following", userController.showFollowing);
-router.get("/:username", userController.showUserProfile);
+router.get("/:username/following", ensureAuthenticate, userController.showFollowing);
+router.get("/:username", ensureAuthenticate, userController.showUserProfile);
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

@@ -23,10 +23,16 @@
 
           <nav id="navbar-features" class="d-flex justify-content-around pb-3">
             <div style="width: 50%; text-align: center">
-              <a class="follow-status pb-3" href="/users/followers"> Followers </a>
+              <a class="follow-status pb-3" href="/users/<%=user.username%>/followers">
+                Followers
+              </a>
             </div>
             <div style="width: 50%; text-align: center">
-              <a id="following-link" class="follow-status pb-3" href="/users/following">
+              <a
+                id="following-link"
+                class="follow-status pb-3"
+                href="/users/<%=user.username%>/following"
+              >
                 Following
               </a>
             </div>
