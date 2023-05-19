@@ -10,7 +10,7 @@
         <%- include("../partials/sideBarLeft") %>
         <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-lg-6">
           <!-- Header con blur -->
-          <div id="header-container" class="d-flex">
+          <div id="header-container" class="d-flex" style="z-index: 100">
             <div id="back-link" class="me-3" style="padding-left: 0px">
               <a href="/">
                 <img src="/img/flecha.svg" alt="Back" />
@@ -18,7 +18,7 @@
             </div>
             <div id="username" class="d-flex flex-column ms-5">
               <h3><%=user.firstname%></h3>
-              <span><%=user.tweets.length%>tweets</span>
+              <span><%=user.tweets.length%> tweets</span>
             </div>
           </div>
 
@@ -30,13 +30,18 @@
             <div id="profile_info_2" class="ms-2">
               <h1 id="profile_name"><%=user.firstname%> <%=user.lastname%></h1>
               <div class="d-flex justify-content-between">
-                <div><span id="profile_username"><%=user.username%></span></div>
+                <div><span id="profile_username">@<%=user.username%></span></div>
                 <div class="justify-content-end">
-                  <a href="/users/<%=user.username%>followers">
+                  <a
+                    href="/users/<%=user.username%>/followers"
+                    style="text-decoration: none; color: black"
+                  >
                     <span class="profile_numbers"><%=user.followers.length%></span>
                     <span class="profile_ff">Followers</span></a
                   >
-                  <a href="/users/<%=user.username%>following"
+                  <a
+                    href="/users/<%=user.username%>/following"
+                    style="text-decoration: none; color: black"
                     ><span class="profile_numbers"><%=user.following.length%></span>
                     <span class="profile_ff">Following</span></a
                   >
