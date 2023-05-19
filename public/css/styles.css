@@ -68,5 +68,26 @@
   background-color: rgb(26, 140, 216);
 }
 
+#createAccount-btn {
+  border: 1px solid #000000;
+  border-radius: 45px;
+  color: rgb(15, 20, 25);
+  font-weight: 600;
+  background-color: #ffffff;
+  height: 40px;
+}
+
+#createAccount-btn:hover {
+  background: #f3f3f3;
+}
+
+#advice {
+  font-size: 0.8rem;
+}
+
+.terms {
+  text-decoration: none;
+  color: #1d9bf0;
+}
 /*termina aside right
 /* Rectangle 3 */
