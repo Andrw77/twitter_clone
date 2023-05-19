@@ -6,82 +6,77 @@
 
   <body>
     <div class="container" style="position: relative">
-      <div class="row row-cols-2 row-cols-md-2 row-cols-sm-2 g-0">
+      <div class="row g-0">
         <%- include("../partials/sideBarLeft") %>
-        <div
-          id="main_content"
-          class="d-flex flex-column flex-shrink-0 p-3 col-lg-6 col-md-6 col-sm-6 col-xs-7"
-        >
-          <div class="row align-items-center">
-            <!-- Header con blur -->
-            <div id="header-container" class="d-flex">
-              <div id="back-link" class="me-3" style="padding-left: 0px">
-                <a href="/">
-                  <img src="/img/flecha.svg" alt="Back" />
-                </a>
+        <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-md-6">
+          <!-- Header con blur -->
+          <div id="header-container" class="d-flex">
+            <div id="back-link" class="me-3" style="padding-left: 0px">
+              <a href="/">
+                <img src="/img/flecha.svg" alt="Back" />
+              </a>
+            </div>
+            <div id="username" class="d-flex flex-column ms-5">
+              <h3>Leia Organa</h3>
+              <span>tweets</span>
+            </div>
+          </div>
+
+          <!-- Div para poner foto de portada -->
+          <div id="profile_portrait"></div>
+
+          <!-- Div para la información del usuario -->
+          <div id="profile_info">
+            <div id="profile_info_2" class="ms-2">
+              <h1 id="profile_name">Leia Organa</h1>
+              <div class="d-flex justify-content-between">
+                <div><span id="profile_username">@leiaorgana62</span></div>
+                <div class="justify-content-end">
+                  <span class="profile_numbers">25</span>
+                  <span class="profile_ff">Followers</span>
+                  <span class="profile_numbers">25</span>
+                  <span class="profile_ff">Following</span>
+                </div>
               </div>
-              <div id="username" class="d-flex flex-column ms-5">
-                <h3>Leia Organa</h3>
-                <span>tweets</span>
+            </div>
+            <div id="div_profile_img" class="ms-3">
+              <img id="profile_img" src="/img/istockphoto-587805156-612x612.jpg" alt="" />
+            </div>
+            <div id="edit_profile">
+              <button class="btn" id="btn_edit_profile">Edit profile</button>
+            </div>
+            <div>
+              <div class="d-flex align-items-center ms-1 mt-1">
+                <div>
+                  <svg
+                    width="28"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-1xvli5t r-1d4mawv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  >
+                    <g>
+                      <path
+                        d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5v12c0 .28.23.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6zm0 6h2v-2H7v2zm0 4h2v-2H7v2zm4-4h2v-2h-2v2zm0 4h2v-2h-2v2zm4-4h2v-2h-2v2z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="mt-1 profile_ff">Se unió en agosto de 2013</div>
               </div>
             </div>
 
-            <!-- Div para poner foto de portada -->
-            <div id="profile_portrait"></div>
-
-            <!-- Div para la información del usuario -->
-            <div id="profile_info">
-              <div id="profile_info_2" class="ms-2">
-                <h1 id="profile_name">Leia Organa</h1>
-                <div class="d-flex justify-content-between">
-                  <div><span id="profile_username">@leiaorgana62</span></div>
-                  <div class="justify-content-end">
-                    <span class="profile_numbers">25</span>
-                    <span class="profile_ff">Followers</span>
-                    <span class="profile_numbers">25</span>
-                    <span class="profile_ff">Following</span>
-                  </div>
-                </div>
-              </div>
-              <div id="div_profile_img" class="ms-3">
-                <img id="profile_img" src="/img/istockphoto-587805156-612x612.jpg" alt="" />
-              </div>
-              <div id="edit_profile">
-                <button class="btn" id="btn_edit_profile">Edit profile</button>
-              </div>
-              <div>
-                <div class="d-flex align-items-center ms-1 mt-1">
-                  <div>
-                    <svg
-                      width="28"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-1xvli5t r-1d4mawv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
-                    >
-                      <g>
-                        <path
-                          d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5v12c0 .28.23.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6zm0 6h2v-2H7v2zm0 4h2v-2H7v2zm4-4h2v-2h-2v2zm0 4h2v-2h-2v2zm4-4h2v-2h-2v2z"
-                        ></path>
-                      </g>
-                    </svg>
-                  </div>
-                  <div class="mt-1 profile_ff">Se unió en agosto de 2013</div>
-                </div>
-              </div>
-
-              <!-- Div para la "navegación del perfil" -->
-              <div class="mt-4">
-                <ul class="nav ms-2">
-                  <li class="nav-item" style="border-bottom: 5px solid #1d9bf0">
-                    <a id="nav_letter" class="nav-link active" href="#" style="color: black"
-                      >Tweets</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <!-- Aquí termina el div para la "navegación del perfil" -->
+            <!-- Div para la "navegación del perfil" -->
+            <div class="mt-4">
+              <ul class="nav ms-2">
+                <li class="nav-item" style="border-bottom: 5px solid #1d9bf0">
+                  <a id="nav_letter" class="nav-link active" href="#" style="color: black"
+                    >Tweets</a
+                  >
+                </li>
+              </ul>
             </div>
+            <!-- Aquí termina el div para la "navegación del perfil" -->
           </div>
           <!-- Aqui comienzan los tweets del usuario, debemos agregar for para poder listar los tweets -->
           <div class="row p-3 g-0 tweet-row">

@@ -6,59 +6,57 @@
 
   <body>
     <div class="container d-flex flex-row">
-      <%- include("../partials/sideBarLeft") %>
-      <div id="div_aside" class="col-3"></div>
-      <div class="container-fluid d-flex flex-column flex-shrink-0 p-3">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <div id="header-container" class="d-flex ms-2">
-              <div id="back-link">
-                <a href="/">
-                  <img src="/img/flecha.svg" alt="Back" />
-                </a>
-              </div>
-              <div id="username" class="d-flex flex-column">
-                <h3>Leia Organa</h3>
-                <span>@leiaorgana</span>
-              </div>
+      <div class="row g-0">
+        <%- include("../partials/sideBarLeft") %>
+        <div class="container-fluid d-flex flex-column flex-shrink-0 p-3 col-10 col-md-6">
+          <div id="header-container" class="d-flex ms-2">
+            <div id="back-link">
+              <a href="/">
+                <img src="/img/flecha.svg" alt="Back" />
+              </a>
             </div>
-            <nav id="navbar-features" class="d-flex justify-content-around pb-3">
-              <div style="width: 50%; text-align: center">
-                <a id="follower-link" class="pb-3" href="/users/followers"> Followers </a>
+            <div id="username" class="d-flex flex-column">
+              <h3>Leia Organa</h3>
+              <span>@leiaorgana</span>
+            </div>
+          </div>
+          <nav id="navbar-features" class="d-flex justify-content-around pb-3">
+            <div style="width: 50%; text-align: center">
+              <a id="follower-link" class="pb-3" href="/users/followers"> Followers </a>
+            </div>
+            <div style="width: 50%; text-align: center">
+              <a class="follow-status pb-3" href="/users/following"> Following </a>
+            </div>
+          </nav>
+          <div class="container-fluid" id="usersList">
+            <% for(userFollower of userFollowers){ %>
+            <div class="row p-3 g-0 hover-effect">
+              <div class="d-flex col-2 justify-content-center">
+                <img
+                  class="img-fluid rounded-circle"
+                  style="width: 50px; height: 50px"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                  alt="User image"
+                />
               </div>
-              <div style="width: 50%; text-align: center">
-                <a class="follow-status pb-3" href="/users/following"> Following </a>
-              </div>
-            </nav>
-            <div class="container-fluid" id="usersList">
-              <% for(userFollower of userFollowers){ %>
-              <div class="row p-3 g-0 hover-effect">
-                <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
-                </div>
-                <div class="col-10">
-                  <div id="follow-row" class="d-flex justify-content-between">
-                    <div>
-                      <span id="user" class="d-flex pb-1 pr-1 main-font"
-                        ><%=userFollower.firstname%> <%=userFollower.lastname %></span
-                      >
-                      <span id="user-arroba">@<%=userFollower.username%></span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button id="follow-btn">Follow</button>
-                    </div>
+              <div class="col-10">
+                <div id="follow-row" class="d-flex justify-content-between">
+                  <div>
+                    <span id="user" class="d-flex pb-1 pr-1 main-font"
+                      ><%=userFollower.firstname%> <%=userFollower.lastname %></span
+                    >
+                    <span id="user-arroba">@<%=userFollower.username%></span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <button id="follow-btn">Follow</button>
                   </div>
                 </div>
               </div>
-              <% } %>
             </div>
+            <% } %>
           </div>
         </div>
+        <%- include("../partials/sideBarRight") %>
       </div>
     </div>
 
