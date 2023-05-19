@@ -1,8 +1,6 @@
-const { faker } = require("@faker-js/faker");
-faker.locale = "es";
-
 const User = require("../models/User");
 const passport = require("passport");
+const bcrypt = require("bcrypt");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -25,29 +23,23 @@ async function login(req, res) {
   })(req, res);
 }
 
-// Show the form for creating a new resource
-async function create(req, res) {}
-
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const { firstname, lastname, email, password } = req.body;
+  const { firstname, lastname, username, email, password } = req.body;
   const passwordHashed = await bcrypt.hash(password, 8);
   const user = new User({
     firstname: firstname,
     lastname: lastname,
     password: passwordHashed,
-    username: faker.name.firstName().toLowerCase(),
+    username: username,
     email: email,
-    description: faker.lorem.sentence(),
-    profileImg: faker.image.avatar(),
-    createdAt: faker.date.between({
-      from: "2020-01-01T00:00:00.000Z",
-      to: "2030-01-01T00:00:00.000Z",
-    }),
+    description: "dkmfghodnodnmgozdkmgozmrgopesesesesesesssssssssssssssssssssssssssssssssssss",
+    profileImg: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5…",
   });
-  await User.save(user);
+  await user.save();
   if (user) {
-    req.login(user, () => res.redirect("/"));
+    res.redirect("/");
+    //req.login(user, () => res.redirect("/"));
   } else {
     res.redirect("back");
   }
@@ -70,7 +62,6 @@ module.exports = {
   showLogin,
   showRegister,
   login,
-  create,
   store,
   edit,
   update,
