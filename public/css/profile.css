@@ -58,6 +58,10 @@
   text-align: center;
 }
 
+#btn_edit_profile {
+  background-color: rgb(26, 140, 216);
+}
+
 #profile_info_2 {
   margin-top: 100px;
 }
@@ -87,7 +91,7 @@
   line-height: 17px;
 }
 
-#profile_ff {
+.profile_ff {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
