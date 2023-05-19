@@ -33,14 +33,18 @@
                 <h1>Sign up</h1>
                 <small id="advice-message">Create an account and start using Twitter</small>
               </div>
-              <form class="mb-5" method="POST" action="/auth/register">
+              <form
+                class="mb-5"
+                method="POST"
+                action="/auth/register"
+                enctype="multipart/form-data"
+              >
                 <div class="mb-3">
                   <input
                     type="text"
                     class="form-control"
                     id="firstname"
                     name="firstname"
-                    aria-describedby="emailHelp"
                     placeholder="First name"
                   />
                 </div>
@@ -50,7 +54,6 @@
                     class="form-control"
                     id="lastname"
                     name="lastname"
-                    aria-describedby="emailHelp"
                     placeholder="Last name"
                   />
                 </div>
@@ -60,7 +63,6 @@
                     class="form-control"
                     id="email"
                     name="email"
-                    aria-describedby="emailHelp"
                     placeholder="Email"
                   />
                 </div>
@@ -70,7 +72,6 @@
                     class="form-control"
                     id="username"
                     name="username"
-                    aria-describedby="emailHelp"
                     placeholder="Username"
                   />
                 </div>
