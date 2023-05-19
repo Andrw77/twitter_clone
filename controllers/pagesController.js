@@ -19,8 +19,24 @@ const Tweet = require("../models/Tweet");
 const User = require("../models/User");
 
 async function showHome(req, res) {
-  const allUsers = await User.find().populate("tweets");
-  res.render("pages/home", { allUsers });
+  try {
+    if (req.user) {
+      const userId = await User.findById(req.user.id).populate("following");
+      const followingUsers = userId.following;
+
+      const tweetsFollowing = await Tweet.find({ author: { $in: followingUsers } })
+        .populate("author")
+        .sort({ createdAt: -1 });
+
+      res.render("pages/home", { tweetsFollowing });
+    } else {
+      const allTweets = await Tweet.find().populate("author").sort({ createdAt: -1 });
+      res.render("pages/home", { allTweets });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al cargar la página de inicio" });
+  }
 }
 
 async function showContact(req, res) {

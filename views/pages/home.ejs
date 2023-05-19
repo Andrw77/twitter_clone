@@ -41,7 +41,8 @@
             <div class="mb-3">
               <h3 class="main-font"><strong>Explore</strong></h3>
             </div>
-            <% } %> <%for (one of allUsers) {%>
+
+            <% } %> <% if(user){ %> <%for (tweet of tweetsFollowing) {%>
             <div class="row p-3 g-0 tweet-row">
               <div class="d-flex col-2 justify-content-center">
                 <img
@@ -53,18 +54,35 @@
               </div>
               <div class="col-10">
                 <span class="d-inline-block pb-1 pr-1 main-font"
-                  ><strong><%=one.firstname%> <%=one.lastname%></strong></span
+                  ><strong><%=tweet.author.firstname%> <%=tweet.author.lastname%></strong></span
                 >
-                <span>@pedrohernandez - 4h</span>
-                <p class="text-left main-font">
-                  One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                  transformed in his bed into a horrible vermin.
-                </p>
+                <span>@<%=tweet.author.username%> - 4h</span>
+                <p class="text-left main-font"><%= tweet.body %></p>
                 <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
                 <span>5</span>
               </div>
             </div>
-            <%}%>
+            <%}%> <% } else { %> <%for (tweet of allTweets) {%>
+            <div class="row p-3 g-0 tweet-row">
+              <div class="d-flex col-2 justify-content-center">
+                <img
+                  class="img-fluid rounded-circle"
+                  style="width: 50px; height: 50px"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                  alt="User image"
+                />
+              </div>
+              <div class="col-10">
+                <span class="d-inline-block pb-1 pr-1 main-font"
+                  ><strong><%=tweet.author.firstname%> <%=tweet.author.lastname%></strong></span
+                >
+                <span>@<%= tweet.author.username %> - 4h</span>
+                <p class="text-left main-font"><%= tweet.body %></p>
+                <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
+                <span>5</span>
+              </div>
+            </div>
+            <%}%> <% } %>
           </div>
         </div>
         <%- include("../partials/sideBarRight") %>
