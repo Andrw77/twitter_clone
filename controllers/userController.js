@@ -8,15 +8,17 @@ async function showUserProfile(req, res) {
 
 // Display the specified resource.
 async function showFollowers(req, res) {
-  const userId = await User.findById(req.user.id).populate("followers");
+  const user = req.user;
+  const userId = await User.findById(user.id).populate("followers");
   const userFollowers = userId.followers;
-  res.render("pages/followers", { userFollowers });
+  res.render("pages/followers", { userFollowers, user });
 }
 
 async function showFollowing(req, res) {
-  const userId = await User.findById(req.user.id).populate("following");
+  const user = req.user;
+  const userId = await User.findById(user.id).populate("following");
   const userFollowings = userId.following;
-  res.render("pages/following", { userFollowings });
+  res.render("pages/following", { userFollowings, user });
 }
 
 // Show the form for creating a new resource
