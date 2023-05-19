@@ -42,3 +42,39 @@
   border-right: 1px solid #f3f3f3;
   border-left: 1px solid #f3f3f3;
 }
+
+#btnLoginSideBar,
+#btnSignUpSideBar {
+  background-color: #feffff;
+  border-radius: 40px;
+}
+
+#btnLoginSideBar:hover,
+#btnSignUpSideBar:hover {
+  background-color: rgb(26, 140, 216);
+  color: #ffffff;
+}
+
+#txtLoginSideBar,
+#txtSignUpSideBar {
+  color: #1d9bf0;
+}
+
+#txtLoginSideBar:hover,
+#txtSignUpSideBar:hover {
+  color: #ffffff;
+}
+
+#divNoAuth {
+  width: 100%;
+  background-color: #1d9bf0;
+  padding: 20px;
+}
+
+#invitedMessage {
+  font-family: "Roboto", Sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.5rem;
+  line-height: 25px;
+}
