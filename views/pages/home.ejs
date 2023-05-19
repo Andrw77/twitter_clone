@@ -9,32 +9,39 @@
         <%- include("../partials/sideBarLeft") %>
         <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-lg-6">
           <div class="row align-items-center">
-            <h3 class="main-font"><strong>Home</strong></h3>
-            <div class="row p-3 g-0">
-              <div class="d-flex col-2 justify-content-center">
-                <img
-                  class="img-fluid rounded-circle"
-                  style="width: 50px; height: 50px"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                  alt="User image"
-                />
-              </div>
-              <div class="col-10">
-                <form action="">
-                  <input
-                    class="col-12 tweet-area fs-5 form-control"
-                    style="border: none"
-                    type="text-area"
-                    placeholder="What's happening?"
+            <% if (user) {%>
+            <div>
+              <h3 class="main-font"><strong>Home</strong></h3>
+              <div class="row p-3 g-0">
+                <div class="d-flex col-2 justify-content-center">
+                  <img
+                    class="img-fluid rounded-circle"
+                    style="width: 50px; height: 50px"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
+                    alt="User image"
                   />
-                  <span class="col-9 d-inline-block"></span>
-                  <span class="col-2 d-inline-block">
-                    <button type="submit" class="tweet-button tweet-font mt-2">Tweet</button>
-                  </span>
-                </form>
+                </div>
+                <div class="col-10">
+                  <form action="">
+                    <input
+                      class="col-12 tweet-area fs-5 form-control"
+                      style="border: none"
+                      type="text-area"
+                      placeholder="What's happening?"
+                    />
+                    <span class="col-9 d-inline-block"></span>
+                    <span class="col-2 d-inline-block">
+                      <button type="submit" class="tweet-button tweet-font mt-2">Tweet</button>
+                    </span>
+                  </form>
+                </div>
               </div>
             </div>
-            <%for (one of allUsers) {%>
+            <% } else { %>
+            <div class="mb-3">
+              <h3 class="main-font"><strong>Explore</strong></h3>
+            </div>
+            <% } %> <%for (one of allUsers) {%>
             <div class="row p-3 g-0 tweet-row">
               <div class="d-flex col-2 justify-content-center">
                 <img
@@ -63,7 +70,7 @@
         <%- include("../partials/sideBarRight") %>
       </div>
     </div>
-    <% console.log(user) %> <% if(!user) {%>
+    <% if(!user) {%>
     <div class="dropdown sticky-bottom">
       <div
         id="divNoAuth"
