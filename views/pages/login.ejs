@@ -33,7 +33,7 @@
                 <h1>Login</h1>
                 <small id="advice-message">Ready to start using Twitter?</small>
               </div>
-              <form class="mb-5">
+              <form class="mb-5" method="POST" action="/auth/login">
                 <div class="mb-3">
                   <input
                     type="email"
@@ -41,6 +41,7 @@
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Username or email"
+                    name="email"
                   />
                 </div>
                 <div class="mb-4">
@@ -49,6 +50,7 @@
                     class="form-control"
                     id="exampleInputPassword1"
                     placeholder="Password"
+                    name="password"
                   />
                 </div>
                 <button type="submit" class="btn w-100">Login</button>

@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const passport = require("passport");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -11,6 +12,14 @@ async function showLogin(req, res) {
 // Display the specified resource.
 async function showRegister(req, res) {
   return res.render("pages/register");
+}
+
+async function login(req, res) {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+  })(req, res);
 }
 
 // Show the form for creating a new resource
@@ -35,6 +44,7 @@ module.exports = {
   index,
   showLogin,
   showRegister,
+  login,
   create,
   store,
   edit,
