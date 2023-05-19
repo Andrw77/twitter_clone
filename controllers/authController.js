@@ -1,3 +1,6 @@
+const { faker } = require("@faker-js/faker");
+faker.locale = "es";
+
 const User = require("../models/User");
 const passport = require("passport");
 
@@ -26,7 +29,29 @@ async function login(req, res) {
 async function create(req, res) {}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const { firstname, lastname, email, password } = req.body;
+  const passwordHashed = await bcrypt.hash(password, 8);
+  const user = new User({
+    firstname: firstname,
+    lastname: lastname,
+    password: passwordHashed,
+    username: faker.name.firstName().toLowerCase(),
+    email: email,
+    description: faker.lorem.sentence(),
+    profileImg: faker.image.avatar(),
+    createdAt: faker.date.between({
+      from: "2020-01-01T00:00:00.000Z",
+      to: "2030-01-01T00:00:00.000Z",
+    }),
+  });
+  await User.save(user);
+  if (user) {
+    req.login(user, () => res.redirect("/"));
+  } else {
+    res.redirect("back");
+  }
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
