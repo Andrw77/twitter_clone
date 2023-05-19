@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
+const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -23,27 +24,47 @@ async function login(req, res) {
   })(req, res);
 }
 
+// Show the form for creating a new resource
+async function create(req, res) {}
+
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const { firstname, lastname, username, email, password } = req.body;
-  const passwordHashed = await bcrypt.hash(password, 8);
-  const user = new User({
-    firstname: firstname,
-    lastname: lastname,
-    password: passwordHashed,
-    username: username,
-    email: email,
-    description: "dkmfghodnodnmgozdkmgozmrgopesesesesesesssssssssssssssssssssssssssssssssssss",
-    profileImg: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5…",
+  const { password } = req.body;
+  // const passwordHashed = await bcrypt.hash(password, 8);
+  const form = formidable({
+    multiples: false,
+    uploadDir: __dirname + "../public/img",
+    keepExtensions: true,
   });
-  await user.save();
-  if (user) {
-    res.redirect("/");
-    //req.login(user, () => res.redirect("/"));
-  } else {
-    res.redirect("back");
-  }
+
+  form.parse(req, async (err, fields, files) => {
+    console.log(fields, files);
+    const user = await User.create({
+      firstname: fields.firstname,
+      lastname: fields.lastname,
+      username: fields.username,
+      email: fields.email,
+      profileImg: files.image.newFilename,
+      password: fields.password,
+    });
+    if (user) {
+      req.login(user, () => res.redirect("/"));
+    } else {
+      res.redirect("back");
+    }
+  });
 }
+
+// const user = new User({
+//   firstname: firstname,
+//   lastname: lastname,
+//   password: passwordHashed,
+//   username: username,
+//   email: email,
+//   description: "a",
+//   profileImg: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5…",
+// });
+// await user.save();
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
@@ -62,6 +83,7 @@ module.exports = {
   showLogin,
   showRegister,
   login,
+  create,
   store,
   edit,
   update,
