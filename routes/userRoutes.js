@@ -5,17 +5,10 @@ const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
 
 // router.post("/createTweet", userController.createTweet);
 
-<<<<<<< Updated upstream
-router.get("/followers", ensureAuthenticate, userController.showFollowers); //"/:username/followers"
-// router.get("/:username/folloing", userController.followerList);
-router.get("/following", ensureAuthenticate, userController.showFollowing);
-
-=======
 router.get("/:username/followers", userController.showFollowers); //"/:username/followers"
 // router.get("/:username/folloing", userController.followerList);
 router.get("/:username/following", userController.showFollowing);
 router.post("/:username", userController.showUserProfile);
->>>>>>> Stashed changes
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 
