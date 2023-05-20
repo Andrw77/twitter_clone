@@ -49,9 +49,11 @@
               <div class="col-10">
                 <div id="follow-row" class="d-flex justify-content-between">
                   <div>
-                    <span id="user" class="d-flex pb-1 pr-1 main-font"
-                      ><%=userFollower.firstname%> <%=userFollower.lastname %></span
-                    >
+                    <a id="users-profile-link" href="/users/<%=userFollower.username%>">
+                      <span id="user" class="d-flex pb-1 pr-1 main-font"
+                        ><%=userFollower.firstname%> <%=userFollower.lastname %></span
+                      >
+                    </a>
                     <span id="user-arroba">@<%=userFollower.username%></span>
                   </div>
                   <div class="d-flex align-items-center">
