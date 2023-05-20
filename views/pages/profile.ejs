@@ -105,10 +105,23 @@
               <span>@<%=user.username%> - 4h</span>
               <p class="text-left main-font"><%=tweet.body%></p>
               <div id="likes-delete-box" class="d-flex justify-content-between">
-                <div id="likes">
-                  <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-                  <span>5</span>
+                <div id="likes-box" class="d-flex">
+                  <div id="likes">
+                    <form action="/users/<%=tweet.id%>/like?_method=PATCH" method="POST">
+                      <button id="like-btn" type="submit">
+                        <% if (!tweet.likes.includes(user.id)) { %>
+                        <i class="fa-regular fa-heart"></i>
+                        <% } else { %>
+                        <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
+                        <% } %>
+                      </button>
+                    </form>
+                  </div>
+                  <div id="likes-length">
+                    <span><%= tweet.likes.length %></span>
+                  </div>
                 </div>
+
                 <div id="delete">
                   <!-- Agregar el form con el Action de DELETE -->
                   <form action="">

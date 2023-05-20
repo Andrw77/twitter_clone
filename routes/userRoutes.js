@@ -9,6 +9,8 @@ router.get("/:username/followers", ensureAuthenticate, userController.showFollow
 // router.get("/:username/folloing", userController.followerList);
 router.get("/:username/following", ensureAuthenticate, userController.showFollowing);
 router.get("/:username", ensureAuthenticate, userController.showUserProfile);
+
+router.patch("/:tweetId/like", userController.likeStore);
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

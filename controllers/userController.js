@@ -1,3 +1,4 @@
+const Tweet = require("../models/Tweet");
 const User = require("../models/User");
 
 // Display a listing of the resource.
@@ -19,6 +20,20 @@ async function showFollowing(req, res) {
   const userId = await User.findById(req.user.id).populate("following");
   const userFollowings = userId.following;
   res.render("pages/following", { userFollowings, user });
+}
+
+async function likeStore(req, res) {
+  const userId = req.user._id;
+  const tweetId = req.params.tweetId;
+  const tweet = await Tweet.findById(tweetId);
+  if (!tweet.likes.includes(userId)) {
+    await Tweet.updateOne({ _id: tweetId }, { $push: { likes: userId } });
+    return res.redirect("back");
+  } else {
+    tweet.likes.pull({ id: userId });
+    await Tweet.updateOne({ _id: tweetId }, { $pull: { likes: userId } });
+    return res.redirect("back");
+  }
 }
 
 // Show the form for creating a new resource
@@ -43,6 +58,7 @@ module.exports = {
   showUserProfile,
   showFollowers,
   showFollowing,
+  likeStore,
   create,
   store,
   edit,

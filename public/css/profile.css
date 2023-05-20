@@ -107,3 +107,8 @@
   font-size: 16px;
   line-height: 19px;
 }
+
+#like-btn {
+  background: none;
+  border: none;
+}
