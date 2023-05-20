@@ -11,7 +11,7 @@ router.get("/:username/following", ensureAuthenticate, userController.showFollow
 router.get("/:username", ensureAuthenticate, userController.showUserProfile);
 router.patch("/:tweetId/like", userController.likeStore);
 router.delete("/:tweetId/delete", userController.destroy);
-router.patch("/:followingId/like", userController.followingStore);
+router.patch("/:followerId/follow", userController.followingStore);
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

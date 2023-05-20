@@ -55,7 +55,15 @@
                     <span id="user-arroba">@<%=userFollower.username%></span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <button id="follow-btn">Follow</button>
+                    <% if(user.following.includes(String(userFollower.id))) {%>
+                    <form action="/users/<%=userFollower.id%>/follow?_method=PATCH" method="post">
+                      <button id="following-btn"></button>
+                    </form>
+                    <% } else { %>
+                    <form action="/users/<%=userFollower.id%>/follow?_method=PATCH" method="post">
+                      <button id="follow-btn">Follow</button>
+                    </form>
+                    <% } %>
                   </div>
                 </div>
               </div>

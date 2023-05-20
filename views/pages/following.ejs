@@ -58,7 +58,9 @@
                     <span id="user-arroba">@<%=userFollowing.username%></span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <button id="following-btn"></button>
+                    <form action="/users/<%=userFollowing.id%>/follow?_method=PATCH" method="post">
+                      <button id="following-btn"></button>
+                    </form>
                   </div>
                 </div>
               </div>

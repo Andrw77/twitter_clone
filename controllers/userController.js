@@ -37,15 +37,17 @@ async function likeStore(req, res) {
 
 async function followingStore(req, res) {
   const user = req.user;
-  const followingId = req.params.followingId;
-  const userFollowing = await User.findById(followingId);
-  if (!user.following.includes(userFollowing.id)) {
-    await User.updateOne({ _id: user.id }, { $push: { following: userFollowing.id } });
-    await User.updateOne({ _id: userFollowing.id }, { $push: { followers: user.id } });
+  const followerId = req.params.followerId;
+  console.log(!user.following.includes(String(followerId)));
+  if (!user.following.includes(String(followerId))) {
+    console.log("Hola");
+    await User.updateOne({ _id: user.id }, { $push: { following: followerId } });
+    await User.updateOne({ _id: followerId }, { $push: { followers: user.id } });
     return res.redirect("back");
   } else {
-    await User.updateOne({ _id: user.id }, { $pull: { following: userFollowing.id } });
-    await User.updateOne({ _id: userFollowing.id }, { $pull: { followers: user.id } });
+    console.log("Hola2");
+    await User.updateOne({ _id: user.id }, { $pull: { following: followerId } });
+    await User.updateOne({ _id: followerId }, { $pull: { followers: user.id } });
     return res.redirect("back");
   }
 }
