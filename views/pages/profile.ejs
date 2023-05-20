@@ -20,7 +20,10 @@
             </div>
             <div id="username" class="d-flex flex-column ms-3">
               <h3><%=userProf.firstname%></h3>
-              <span><%=userProf.tweets.length%> tweets</span>
+              <span
+                ><%=userProf.tweets.length%> <%=userProf.tweets.length === 1 ? "tweet" :
+                "tweets"%></span
+              >
             </div>
           </div>
 
