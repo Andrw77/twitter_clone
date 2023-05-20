@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include("../partials/meta") %>
+    <%- include("../partials/meta") %> <% if(user){ %>
+    <title>Home / Twitter</title>
+    <% } else { %>
+    <title>Explore / Twitter</title>
+    <% } %>
   </head>
   <body>
     <div class="container">
@@ -104,6 +108,9 @@
             </div>
             <%}%> <% } %>
           </div>
+          <svg id="scroll" viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+          </svg>
         </div>
         <%- include("../partials/sideBarRight") %>
       </div>
