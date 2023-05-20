@@ -119,7 +119,7 @@
                   <div id="likes">
                     <form action="/users/<%=tweet.id%>/like?_method=PATCH" method="POST">
                       <button id="like-btn" type="submit">
-                        <% if (!tweet.likes.includes(userProf.id)) { %>
+                        <% if (!tweet.likes.includes(user.id)) { %>
                         <i class="fa-regular fa-heart"></i>
                         <% } else { %>
                         <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
