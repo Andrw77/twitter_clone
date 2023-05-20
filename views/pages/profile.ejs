@@ -124,12 +124,14 @@
 
                 <div id="delete">
                   <!-- Agregar el form con el Action de DELETE -->
-                  <form action="">
-                    <img
-                      src="/img/delete-emoji.svg"
-                      alt="delete"
-                      style="width: 17px; height: 17px"
-                    />
+                  <form action="/users/<%=tweet.id%>/delete?_method=DELETE" method="POST">
+                    <button id="delete-tweet-btn" type="submit">
+                      <img
+                        src="/img/delete-emoji.svg"
+                        alt="delete"
+                        style="width: 17px; height: 17px"
+                      />
+                    </button>
                   </form>
                 </div>
               </div>

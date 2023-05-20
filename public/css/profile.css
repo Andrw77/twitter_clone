@@ -108,7 +108,8 @@
   line-height: 19px;
 }
 
-#like-btn {
+#like-btn,
+#delete-tweet-btn {
   background: none;
   border: none;
 }
