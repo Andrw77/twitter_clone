@@ -3,8 +3,8 @@ const User = require("../models/User");
 
 // Display a listing of the resource.
 async function showUserProfile(req, res) {
-  const user = req.user;
-  return res.render("pages/profile", user);
+  const userProf = await User.findOne({ username: req.params.username }).populate("tweets");
+  return res.render("pages/profile", { userProf });
 }
 
 // Display the specified resource.

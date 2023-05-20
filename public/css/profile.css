@@ -56,10 +56,49 @@
   font-size: 15px;
   line-height: 18px;
   text-align: center;
+  border: none;
 }
 
-#btn_edit_profile {
+#btn_edit_profile:hover {
   background-color: rgb(26, 140, 216);
+}
+
+#following-btn-profile {
+  position: absolute;
+  top: 15px;
+  right: 38px;
+  width: 105px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 45px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #000000;
+  border: 1px solid rgb(207, 217, 222);
+}
+
+.hover-effect:hover,
+.hover-effect:hover #following-btn-profile {
+  background-color: #f8f8f8;
+}
+
+#following-btn-profile::before {
+  content: "Following";
+  color: #000000;
+}
+
+#following-btn-profile:hover::before {
+  display: none;
+}
+
+#following-btn-profile:hover::after {
+  content: "Unfollow";
+  color: red;
+}
+
+#following-btn-profile:hover {
+  border: 1px solid rgb(232, 34, 12);
 }
 
 #profile_info_2 {

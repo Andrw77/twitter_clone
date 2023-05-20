@@ -17,8 +17,8 @@
               </a>
             </div>
             <div id="username" class="d-flex flex-column ms-5">
-              <h3><%=user.firstname%></h3>
-              <span><%=user.tweets.length%> tweets</span>
+              <h3><%=userProf.firstname%></h3>
+              <span><%=userProf.tweets.length%> tweets</span>
             </div>
           </div>
 
@@ -28,21 +28,21 @@
           <!-- Div para la información del usuario -->
           <div id="profile_info">
             <div id="profile_info_2" class="ms-2">
-              <h1 id="profile_name"><%=user.firstname%> <%=user.lastname%></h1>
+              <h1 id="profile_name"><%=userProf.firstname%> <%=userProf.lastname%></h1>
               <div class="d-flex justify-content-between">
-                <div><span id="profile_username">@<%=user.username%></span></div>
+                <div><span id="profile_username">@<%=userProf.username%></span></div>
                 <div class="justify-content-end">
                   <a
-                    href="/users/<%=user.username%>/followers"
+                    href="/users/<%=userProf.username%>/followers"
                     style="text-decoration: none; color: black"
                   >
-                    <span class="profile_numbers"><%=user.followers.length%></span>
+                    <span class="profile_numbers"><%=userProf.followers.length%></span>
                     <span class="profile_ff">Followers</span></a
                   >
                   <a
-                    href="/users/<%=user.username%>/following"
+                    href="/users/<%=userProf.username%>/following"
                     style="text-decoration: none; color: black"
-                    ><span class="profile_numbers"><%=user.following.length%></span>
+                    ><span class="profile_numbers"><%=userProf.following.length%></span>
                     <span class="profile_ff">Following</span></a
                   >
                 </div>
@@ -52,7 +52,17 @@
               <img id="profile_img" src="/img/istockphoto-587805156-612x612.jpg" alt="" />
             </div>
             <div id="edit_profile">
+              <% if (String(user.id) === String(userProf.id)) {%>
               <button class="btn" id="btn_edit_profile">Edit profile</button>
+              <% } else { %> <% if(user.following.includes(String(userProf.id))) {%>
+              <form action="/users/<%=userProf.id%>/follow?_method=PATCH" method="post">
+                <button id="following-btn-profile"></button>
+              </form>
+              <% } else { %>
+              <form action="/users/<%=userProf.id%>/follow?_method=PATCH" method="post">
+                <button id="btn_edit_profile">Follow</button>
+              </form>
+              <% } %> <% } %>
             </div>
             <div>
               <div class="d-flex align-items-center ms-1 mt-1">
@@ -88,7 +98,7 @@
             <!-- Aquí termina el div para la "navegación del perfil" -->
           </div>
           <!-- Aqui comienzan los tweets del usuario, debemos agregar for para poder listar los tweets -->
-          <% for (const tweet of user.tweets) {%>
+          <% for (const tweet of userProf.tweets) {%>
           <div class="row p-3 g-0 tweet-row">
             <div class="d-flex col-2 justify-content-center">
               <img
@@ -100,16 +110,16 @@
             </div>
             <div class="col-10">
               <span class="d-inline-block pb-1 pr-1 main-font"
-                ><strong><%=user.firstname%> <%=user.lastname%></strong></span
+                ><strong><%=userProf.firstname%> <%=userProf.lastname%></strong></span
               >
-              <span>@<%=user.username%> - 4h</span>
+              <span>@<%=userProf.username%> - 4h</span>
               <p class="text-left main-font"><%=tweet.body%></p>
               <div id="likes-delete-box" class="d-flex justify-content-between">
                 <div id="likes-box" class="d-flex">
                   <div id="likes">
                     <form action="/users/<%=tweet.id%>/like?_method=PATCH" method="POST">
                       <button id="like-btn" type="submit">
-                        <% if (!tweet.likes.includes(user.id)) { %>
+                        <% if (!tweet.likes.includes(userProf.id)) { %>
                         <i class="fa-regular fa-heart"></i>
                         <% } else { %>
                         <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
@@ -121,7 +131,7 @@
                     <span><%= tweet.likes.length %></span>
                   </div>
                 </div>
-
+                <% if (String(user.id) === String(userProf.id)) {%>
                 <div id="delete">
                   <!-- Agregar el form con el Action de DELETE -->
                   <form action="/users/<%=tweet.id%>/delete?_method=DELETE" method="POST">
@@ -134,6 +144,7 @@
                     </button>
                   </form>
                 </div>
+                <% } %>
               </div>
             </div>
           </div>
