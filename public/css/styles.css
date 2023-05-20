@@ -23,6 +23,16 @@
   border-radius: 15px;
 }
 
+.wHappeningBoxSignIn {
+  width: 100%;
+  min-width: 340px;
+  height: 350px;
+  left: 1300px;
+  top: 18px;
+  background: #f7f9f9;
+  border-radius: 15px;
+}
+
 .asideRightTitle {
   font-weight: 600;
   font-size: 20px;

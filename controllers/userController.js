@@ -30,8 +30,22 @@ async function likeStore(req, res) {
     await Tweet.updateOne({ _id: tweetId }, { $push: { likes: userId } });
     return res.redirect("back");
   } else {
-    tweet.likes.pull({ id: userId });
     await Tweet.updateOne({ _id: tweetId }, { $pull: { likes: userId } });
+    return res.redirect("back");
+  }
+}
+
+async function followingStore(req, res) {
+  const user = req.user;
+  const followingId = req.params.followingId;
+  const userFollowing = await User.findById(followingId);
+  if (!user.following.includes(userFollowing.id)) {
+    await User.updateOne({ _id: user.id }, { $push: { following: userFollowing.id } });
+    await User.updateOne({ _id: userFollowing.id }, { $push: { followers: user.id } });
+    return res.redirect("back");
+  } else {
+    await User.updateOne({ _id: user.id }, { $pull: { following: userFollowing.id } });
+    await User.updateOne({ _id: userFollowing.id }, { $pull: { followers: user.id } });
     return res.redirect("back");
   }
 }
@@ -68,6 +82,7 @@ module.exports = {
   showFollowers,
   showFollowing,
   likeStore,
+  followingStore,
   create,
   store,
   edit,

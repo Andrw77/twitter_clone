@@ -54,7 +54,11 @@
               </div>
               <div class="col-10">
                 <span class="d-inline-block pb-1 pr-1 main-font"
-                  ><strong><%=tweet.author.firstname%> <%=tweet.author.lastname%></strong></span
+                  ><strong
+                    ><a href="/users/<%=tweet.author.username %>"
+                      ><%=tweet.author.firstname%> <%=tweet.author.lastname%></a
+                    ></strong
+                  ></span
                 >
                 <span>@<%=tweet.author.username%> - 4h</span>
                 <p class="text-left main-font"><%= tweet.body %></p>

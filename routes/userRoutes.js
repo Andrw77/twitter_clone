@@ -5,13 +5,16 @@ const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
 
 // router.post("/createTweet", userController.createTweet);
 
-router.get("/:username/followers", ensureAuthenticate, userController.showFollowers); //"/:username/followers"
+router.get("/:username/followers", ensureAuthenticate, userController.showFollowers);
 // router.get("/:username/folloing", userController.followerList);
 router.get("/:username/following", ensureAuthenticate, userController.showFollowing);
 router.get("/:username", ensureAuthenticate, userController.showUserProfile);
-
 router.patch("/:tweetId/like", userController.likeStore);
+<<<<<<< Updated upstream
 router.delete("/:tweetId/delete", userController.destroy);
+=======
+router.patch("/:followingId/like", userController.followingStore);
+>>>>>>> Stashed changes
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 
