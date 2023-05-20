@@ -24,7 +24,7 @@ async function showHome(req, res) {
       const userId = await User.findById(req.user.id).populate("following");
       const followingUsers = userId.following;
 
-      const tweetsFollowing = await Tweet.find({ author: { $in: followingUsers } })
+      const tweetsFollowing = await Tweet.find({ author: { $in: followingUsers.concat(userId) } })
         .populate("author")
         .sort({ createdAt: -1 });
 

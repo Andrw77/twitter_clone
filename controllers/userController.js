@@ -40,12 +40,10 @@ async function followingStore(req, res) {
   const followerId = req.params.followerId;
   console.log(!user.following.includes(String(followerId)));
   if (!user.following.includes(String(followerId))) {
-    console.log("Hola");
     await User.updateOne({ _id: user.id }, { $push: { following: followerId } });
     await User.updateOne({ _id: followerId }, { $push: { followers: user.id } });
     return res.redirect("back");
   } else {
-    console.log("Hola2");
     await User.updateOne({ _id: user.id }, { $pull: { following: followerId } });
     await User.updateOne({ _id: followerId }, { $pull: { followers: user.id } });
     return res.redirect("back");
@@ -56,7 +54,20 @@ async function followingStore(req, res) {
 async function create(req, res) {}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const userId = req.user._id;
+  const body = req.body.body;
+  console.log(req.body.body);
+  const newTweet = await new Tweet({
+    author: userId,
+    body: body,
+    createdAt: new Date(),
+  });
+  await User.updateOne({ _id: userId }, { $push: { tweets: newTweet.id } });
+  console.log(newTweet);
+  await newTweet.save();
+  return res.redirect("back");
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}

@@ -12,6 +12,11 @@ router.get("/:username", ensureAuthenticate, userController.showUserProfile);
 router.patch("/:tweetId/like", userController.likeStore);
 router.delete("/:tweetId/delete", userController.destroy);
 router.patch("/:followerId/follow", userController.followingStore);
+
+// Posteos de Tweets
+
+router.post("/:username/post", ensureAuthenticate, userController.store);
+
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

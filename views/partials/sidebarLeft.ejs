@@ -102,13 +102,8 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <img
-          src="/img/<%=user.profileImg%>"
-          alt=""
-          width="32"
-          height="32"
-          class="rounded-circle me-2"
-        />
+        <img src=<%= user.profileImg.includes("http") ? user.profileImg : "/img/" + user.profileImg
+        %> alt="User image" alt="" width="32" height="32" class="rounded-circle me-2" />
         <p class="text_sidebar_left" style="padding-top: 10px">
           <strong><%=user.firstname%> <%=user.lastname.slice(0,1)%>.</strong>
         </p>

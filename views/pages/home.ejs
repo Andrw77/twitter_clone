@@ -18,21 +18,18 @@
               <h3 class="main-font"><strong>Home</strong></h3>
               <div class="row p-3 g-0">
                 <div class="d-flex col-2 justify-content-center">
-                  <img
-                    class="img-fluid rounded-circle"
-                    style="width: 50px; height: 50px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                    alt="User image"
-                  />
+                  <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
+                  user.profileImg.includes("http") ? user.profileImg : "/img/" + user.profileImg %>
+                  alt="User image" />
                 </div>
                 <div class="col-10">
-                  <form action="">
-                    <input
-                      class="col-12 tweet-area fs-5 form-control"
-                      style="border: none"
-                      type="text-area"
+                  <form action="/users/<%=user.username%>/post" method="POST">
+                    <textarea
+                      class="col-12 tweet-area fs-5 form-control border-0"
+                      name="body"
+                      id="body"
                       placeholder="What's happening?"
-                    />
+                    ></textarea>
                     <span class="col-9 d-inline-block"></span>
                     <span class="col-2 d-inline-block">
                       <button type="submit" class="tweet-button tweet-font mt-2">Tweet</button>
@@ -49,12 +46,9 @@
             <% } %> <% if(user){ %> <%for (tweet of tweetsFollowing) {%>
             <div class="row p-3 g-0 tweet-row">
               <div class="d-flex col-2 justify-content-center">
-                <img
-                  class="img-fluid rounded-circle"
-                  style="width: 50px; height: 50px"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                  alt="User image"
-                />
+                <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
+                tweet.author.profileImg.includes("http") ? tweet.author.profileImg : "/img/" +
+                tweet.author.profileImg %> alt="User image" />
               </div>
               <div class="col-10">
                 <span class="d-inline-block pb-1 pr-1 main-font"
@@ -89,12 +83,9 @@
             <%}%> <% } else { %> <%for (tweet of allTweets) {%>
             <div class="row p-3 g-0 tweet-row">
               <div class="d-flex col-2 justify-content-center">
-                <img
-                  class="img-fluid rounded-circle"
-                  style="width: 50px; height: 50px"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRD5urn4Rut_QlBQwOCxkl50AtTX-xkqjE1w&usqp=CAU"
-                  alt="User image"
-                />
+                <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
+                tweet.author.profileImg.includes("http") ? tweet.author.profileImg : "/img/" +
+                tweet.author.profileImg %> alt="User image" />
               </div>
               <div class="col-10">
                 <span class="d-inline-block pb-1 pr-1 main-font"
