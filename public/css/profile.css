@@ -112,6 +112,10 @@
   color: #ffffff;
   border: none;
 }
+#btn-save-changes:hover {
+  background: rgb(26, 140, 216);
+  border-radius: 45px;
+}
 
 #profile_info_2 {
   margin-top: 100px;
