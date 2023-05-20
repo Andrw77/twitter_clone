@@ -53,7 +53,16 @@
             </div>
             <div id="edit_profile">
               <% if (String(user.id) === String(userProf.id)) {%>
-              <button class="btn" id="btn_edit_profile">Edit profile</button>
+              <button
+                id="btn_edit_profile"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModalCenteredScrollable"
+              >
+                Edit profile
+              </button>
+              <!-- <button class="btn" ></button> -->
               <% } else { %> <% if(user.following.includes(String(userProf.id))) {%>
               <form action="/users/<%=userProf.id%>/follow?_method=PATCH" method="post">
                 <button id="following-btn-profile"></button>
@@ -119,7 +128,7 @@
                   <div id="likes">
                     <form action="/users/<%=tweet.id%>/like?_method=PATCH" method="POST">
                       <button id="like-btn" type="submit">
-                        <% if (!tweet.likes.includes(userProf.id)) { %>
+                        <% if (!tweet.likes.includes(String(user.id))) { %>
                         <i class="fa-regular fa-heart"></i>
                         <% } else { %>
                         <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
@@ -133,16 +142,17 @@
                 </div>
                 <% if (String(user.id) === String(userProf.id)) {%>
                 <div id="delete">
-                  <!-- Agregar el form con el Action de DELETE -->
-                  <form action="/users/<%=tweet.id%>/delete?_method=DELETE" method="POST">
-                    <button id="delete-tweet-btn" type="submit">
-                      <img
-                        src="/img/delete-emoji.svg"
-                        alt="delete"
-                        style="width: 17px; height: 17px"
-                      />
-                    </button>
-                  </form>
+                  <button
+                    id="delete-tweet-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModalCenter"
+                  >
+                    <img
+                      src="/img/delete-emoji.svg"
+                      alt="delete"
+                      style="width: 17px; height: 17px"
+                    />
+                  </button>
                 </div>
                 <% } %>
               </div>
@@ -152,6 +162,113 @@
           <!-- Aqui terminan los tweets -->
         </div>
         <%- include("../partials/sideBarRight") %>
+      </div>
+    </div>
+    <!-- modal editar usuario -->
+    <div
+      class="modal fade"
+      id="exampleModalCenteredScrollable"
+      tabindex="-1"
+      aria-labelledby="exampleModalCenteredScrollableTitle"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content p-5">
+          <div class="d-flex justify-content-end mb-3">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div id="form-col">
+            <form class="mb-5" method="POST" action="/auth/register" enctype="multipart/form-data">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  name="firstname"
+                  placeholder="First name"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  name="lastname"
+                  placeholder="Last name"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="mb-3">
+                <input class="form-control form-control" type="file" id="image" name="image" />
+              </div>
+              <div class="mb-5">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+              <button id="btn-save-changes" type="submit" class="btn w-100">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal eliminar tweet -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      aria-labelledby="exampleModalCenterTitle"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-letter modal-title fs-5" id="exampleModalCenterTitle">
+              Are you sure you want to delete this tweet?
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <form action="/users/<%=tweet.id%>/delete?_method=DELETE" method="POST">
+              <button class="btn btn-danger" type="submit">Delete tweet</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <script src="https://kit.fontawesome.com/1c469dc273.js" crossorigin="anonymous"></script>
