@@ -43,26 +43,28 @@
   border-left: 1px solid #f3f3f3;
 }
 
-#btnLoginSideBar,
+#btnLoginSideBar {
+  background: #1d9bf0;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 40px;
+  border: 1px solid #f3f3f3;
+}
+
+#btnLoginSideBar:hover {
+  background: rgb(65, 165, 232);
+}
+
 #btnSignUpSideBar {
   background-color: #feffff;
+  color: #000000;
+  font-weight: 600;
   border-radius: 40px;
 }
 
-#btnLoginSideBar:hover,
 #btnSignUpSideBar:hover {
-  background-color: rgb(26, 140, 216);
-  color: #ffffff;
-}
-
-#txtLoginSideBar,
-#txtSignUpSideBar {
-  color: #1d9bf0;
-}
-
-#txtLoginSideBar:hover,
-#txtSignUpSideBar:hover {
-  color: #ffffff;
+  background-color: rgb(215, 215, 215);
+  color: #000000;
 }
 
 #divNoAuth {
