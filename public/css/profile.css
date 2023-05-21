@@ -176,3 +176,7 @@
   font-size: 16px;
   line-height: 19px;
 }
+
+.tweet-hover-effect:hover {
+  background-color: #f3f3f3;
+}

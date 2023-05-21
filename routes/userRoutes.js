@@ -17,6 +17,10 @@ router.patch("/:followerId/follow", userController.followingStore);
 
 router.post("/:username/post", ensureAuthenticate, userController.store);
 
+// Retweets
+
+router.get("/:username/retweets", userController.showRetweets);
+
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

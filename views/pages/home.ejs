@@ -44,7 +44,7 @@
             </div>
 
             <% } %> <% if(user){ %> <%for (tweet of tweetsFollowing) {%>
-            <div class="row p-3 g-0 tweet-row">
+            <div class="row p-3 g-0 tweet-row home-hover-effect">
               <div class="d-flex col-2 justify-content-center">
                 <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
                 tweet.author.profileImg.includes("http") ? tweet.author.profileImg : "/img/" +
@@ -74,14 +74,18 @@
                       </button>
                     </form>
                   </div>
-                  <div id="likes-length">
+                  <div class="me-4" id="likes-length">
                     <span><%= tweet.likes.length %></span>
+                  </div>
+                  <!-- Por si pinta hacer los retweets -->
+                  <div id="retweets">
+                    <i class="fa-solid fa-retweet"></i>
                   </div>
                 </div>
               </div>
             </div>
             <%}%> <% } else { %> <%for (tweet of allTweets) {%>
-            <div class="row p-3 g-0 tweet-row">
+            <div class="row p-3 g-0 tweet-row home-hover-effect">
               <div class="d-flex col-2 justify-content-center">
                 <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
                 tweet.author.profileImg.includes("http") ? tweet.author.profileImg : "/img/" +
@@ -93,8 +97,17 @@
                 >
                 <span>@<%= tweet.author.username %> - 4h</span>
                 <p class="text-left main-font"><%= tweet.body %></p>
-                <i class="fa-regular fa-heart"></i>
-                <span><%=tweet.likes.length%></span>
+
+                <div id="tweet-options" class="d-flex">
+                  <div class="me-4">
+                    <i class="fa-regular fa-heart"></i>
+                    <span><%=tweet.likes.length%></span>
+                  </div>
+                  <div id="retweets">
+                    <i class="fa-solid fa-retweet"></i>
+                    <span>0</span>
+                  </div>
+                </div>
               </div>
             </div>
             <%}%> <% } %>

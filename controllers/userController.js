@@ -22,6 +22,11 @@ async function showFollowing(req, res) {
   res.render("pages/following", { userFollowings, user });
 }
 
+async function showRetweets(req, res) {
+  const userProf = await User.findOne({ username: req.params.username }).populate("tweets");
+  return res.render("pages/retweets", { userProf });
+}
+
 async function likeStore(req, res) {
   const userId = req.user._id;
   const tweetId = req.params.tweetId;
@@ -94,6 +99,7 @@ module.exports = {
   showUserProfile,
   showFollowers,
   showFollowing,
+  showRetweets,
   likeStore,
   followingStore,
   create,
