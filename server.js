@@ -6,10 +6,8 @@ const express = require("express");
 const sessions = require("./sessions");
 const routes = require("./routes");
 const passport = require("./passport");
-
 const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
-
 const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
 
 app.use(methodOverride("_method"));

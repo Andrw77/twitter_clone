@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
 const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
+const uniqueValidator = require("../middlewares/uniqueValidator");
 
 // router.post("/createTweet", userController.createTweet);
 
@@ -21,7 +22,7 @@ router.post("/:username/post", ensureAuthenticate, userController.store);
 
 router.get("/:username/retweets", userController.showRetweets);
 
-router.patch("/edit", userController.update);
+router.patch("/edit", uniqueValidator, userController.update);
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 

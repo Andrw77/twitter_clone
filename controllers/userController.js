@@ -9,7 +9,8 @@ async function showUserProfile(req, res) {
     path: "tweets",
     options: { sort: { createdAt: -1 } },
   });
-  return res.render("pages/profile", { userProf });
+
+  res.render("pages/profile", { userProf });
 }
 
 // Display the specified resource.
@@ -93,57 +94,77 @@ async function update(req, res) {
   form.parse(req, async (err, fields, files) => {
     const { password } = fields;
     const passwordHashed = await bcrypt.hash(password, 8);
-    if (!files.image.newFilename.includes(".")) {
-      if (password) {
-        await User.findOneAndUpdate(
-          { _id: req.user.id },
-          {
-            firstname: fields.firstname,
-            lastname: fields.lastname,
-            username: fields.username,
-            email: fields.email,
-            password: passwordHashed,
-          },
-        );
+    let userUpdated = {};
+    try {
+      if (!files.image.newFilename.includes(".")) {
+        if (password) {
+          userUpdated = await User.findOneAndUpdate(
+            { _id: req.user.id },
+            {
+              firstname: fields.firstname,
+              lastname: fields.lastname,
+              username: fields.username,
+              email: fields.email,
+              password: passwordHashed,
+            },
+            {
+              returnOriginal: false,
+            },
+          );
+        } else {
+          userUpdated = await User.findOneAndUpdate(
+            { _id: req.user.id },
+            {
+              firstname: fields.firstname,
+              lastname: fields.lastname,
+              username: fields.username,
+              email: fields.email,
+            },
+            {
+              returnOriginal: false,
+            },
+          );
+        }
       } else {
-        await User.findOneAndUpdate(
-          { _id: req.user.id },
-          {
-            firstname: fields.firstname,
-            lastname: fields.lastname,
-            username: fields.username,
-            email: fields.email,
-          },
-        );
+        if (password) {
+          userUpdated = await User.findOneAndUpdate(
+            { _id: req.user.id },
+            {
+              firstname: fields.firstname,
+              lastname: fields.lastname,
+              username: fields.username,
+              email: fields.email,
+              profileImg: files.image.newFilename,
+              password: passwordHashed,
+            },
+            {
+              returnOriginal: false,
+            },
+          );
+        } else {
+          userUpdated = await User.findOneAndUpdate(
+            { _id: req.user.id },
+            {
+              firstname: fields.firstname,
+              lastname: fields.lastname,
+              username: fields.username,
+              email: fields.email,
+              profileImg: files.image.newFilename,
+            },
+            {
+              returnOriginal: false,
+            },
+          );
+        }
       }
-    } else {
-      if (password) {
-        await User.findOneAndUpdate(
-          { _id: req.user.id },
-          {
-            firstname: fields.firstname,
-            lastname: fields.lastname,
-            username: fields.username,
-            email: fields.email,
-            profileImg: files.image.newFilename,
-            password: passwordHashed,
-          },
-        );
-      } else {
-        await User.findOneAndUpdate(
-          { _id: req.user.id },
-          {
-            firstname: fields.firstname,
-            lastname: fields.lastname,
-            username: fields.username,
-            email: fields.email,
-            profileImg: files.image.newFilename,
-          },
-        );
-      }
+      console.log(userUpdated);
+      res.redirect(`/users/${userUpdated.username}`);
+    } catch (error) {
+      console.log(userUpdated);
+      req.flash.failureFlash = { message: error };
+      console.log(req.flash.failureFlash);
+      return res.redirect(`/users/${req.user.username}?error=1`);
     }
-
-    res.redirect(`/users/${fields.username}`);
   });
 }
 
