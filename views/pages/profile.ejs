@@ -330,7 +330,6 @@
       }
       //Alert for unique
       const failure = new URLSearchParams(window.location.search).get("error");
-      console.log(error);
       if (Number(failure) === 1) {
         Swal.fire({
           title: "Error!",

@@ -157,12 +157,9 @@ async function update(req, res) {
           );
         }
       }
-      console.log(userUpdated);
       res.redirect(`/users/${userUpdated.username}`);
     } catch (error) {
-      console.log(userUpdated);
       req.flash.failureFlash = { message: error };
-      console.log(req.flash.failureFlash);
       return res.redirect(`/users/${req.user.username}?error=1`);
     }
   });

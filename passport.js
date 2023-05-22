@@ -15,8 +15,6 @@ const bcrypt = require("bcrypt");
 
 module.exports = (app) => {
   app.use(passport.session());
-  console.log(passport.session());
-
   passport.use(
     new LocalStrategy(
       {

@@ -18,7 +18,7 @@ async function showRegister(req, res) {
 
 async function login(req, res) {
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/?firstLogin=1",
     failureRedirect: "/auth/login?authError=1",
     failureFlash: true,
   })(req, res);
