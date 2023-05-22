@@ -5,7 +5,10 @@ const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function showUserProfile(req, res) {
-  const userProf = await User.findOne({ username: req.params.username }).populate("tweets");
+  const userProf = await User.findOne({ username: req.params.username }).populate({
+    path: "tweets",
+    options: { sort: { createdAt: -1 } },
+  });
   return res.render("pages/profile", { userProf });
 }
 
