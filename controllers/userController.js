@@ -88,36 +88,59 @@ async function update(req, res) {
   });
 
   form.parse(req, async (err, fields, files) => {
-    console.log(fields, files);
     const { password } = fields;
     const passwordHashed = await bcrypt.hash(password, 8);
-    console.log(files.image);
-    if (password) {
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
-        {
-          firstname: fields.firstname,
-          lastname: fields.lastname,
-          username: fields.username,
-          email: fields.email,
-          profileImg: files.image.newFilename,
-          password: passwordHashed,
-        },
-      );
+    if (!files.image.newFilename.includes(".")) {
+      if (password) {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            username: fields.username,
+            email: fields.email,
+            password: passwordHashed,
+          },
+        );
+      } else {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            username: fields.username,
+            email: fields.email,
+          },
+        );
+      }
     } else {
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
-        {
-          firstname: fields.firstname,
-          lastname: fields.lastname,
-          username: fields.username,
-          email: fields.email,
-          profileImg: files.image.newFilename,
-        },
-      );
+      if (password) {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            username: fields.username,
+            email: fields.email,
+            profileImg: files.image.newFilename,
+            password: passwordHashed,
+          },
+        );
+      } else {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          {
+            firstname: fields.firstname,
+            lastname: fields.lastname,
+            username: fields.username,
+            email: fields.email,
+            profileImg: files.image.newFilename,
+          },
+        );
+      }
     }
 
-    res.redirect("back");
+    res.redirect(`/users/${fields.username}`);
   });
 }
 
