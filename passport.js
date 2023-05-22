@@ -19,33 +19,22 @@ module.exports = (app) => {
   passport.use(
     new LocalStrategy(
       {
-        usernameField: "email",
+        usernameField: "usernameOrEmail",
         passwordField: "password",
       },
-      async function (email, password, done) {
+      async function (usernameOrEmail, password, done) {
         // Este código sólo se llama si username y password están definidos.
-        console.log("[LocalStrategy] Username:", email); // To-Do: Borrar este `console.log` luego de hacer pruebas.
+        console.log("[LocalStrategy] Username:", usernameOrEmail); // To-Do: Borrar este `console.log` luego de hacer pruebas.
         console.log("[LocalStrategy] Password:", password); // To-Do: Borrar este `console.log` luego de hacer pruebas.
         // Completar código...
         try {
-          const user = await User.findOne({ email: email });
+          const user = await User.findOne({
+            $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }],
+          });
           if (!user) {
             console.log("Usuario no existe.");
             return done(null, false, { message: "Credenciales incorrectas." });
           }
-          // try {
-          //   const user = await User.findOne({
-          //     $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }],
-          //   });
-          //   if (!user) {
-          //     console.log("Usuario no existe.");
-          //     return done(null, false, { message: "Credenciales incorrectas." });
-          //   }
-
-          // await comparePasswords(passwordToValidate) {
-          //   await bcrypt.compare(passwordToValidate, user.password);
-          // }
-
           const match = await bcrypt.compare(password, user.password);
           if (!match) {
             console.log("La contraseña es inválida.");
