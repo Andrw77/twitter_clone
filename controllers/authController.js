@@ -8,7 +8,7 @@ async function index(req, res) {}
 
 // Display the specified resource.
 async function showLogin(req, res) {
-  return res.render("pages/login");
+  return res.render("pages/login", { error: res.locals.failureFlash });
 }
 
 // Display the specified resource.
@@ -19,7 +19,7 @@ async function showRegister(req, res) {
 async function login(req, res) {
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/auth/login",
+    failureRedirect: "/auth/login?authError=1",
     failureFlash: true,
   })(req, res);
 }

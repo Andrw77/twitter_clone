@@ -178,7 +178,7 @@ async function destroy(req, res) {
   if (String(tweet.author) === String(userId)) {
     await Tweet.deleteOne({ _id: tweetId });
   }
-  res.redirect("back");
+  res.redirect(`/users/${req.user.username}?tweetDelete=1`);
 }
 
 // Otros handlers...
