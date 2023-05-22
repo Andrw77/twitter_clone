@@ -12,6 +12,7 @@ router.get("/:username", ensureAuthenticate, userController.showUserProfile);
 router.patch("/:tweetId/like", userController.likeStore);
 router.delete("/:tweetId/delete", userController.destroy);
 router.patch("/:followerId/follow", userController.followingStore);
+<<<<<<< Updated upstream
 
 // Posteos de Tweets
 
@@ -21,6 +22,9 @@ router.post("/:username/post", ensureAuthenticate, userController.store);
 
 router.get("/:username/retweets", userController.showRetweets);
 
+=======
+router.patch("/edit", userController.update);
+>>>>>>> Stashed changes
 // router.post("/:username/follow", userController.follow);
 // router.post("/:username/unfollow", userController.unfollow);
 
@@ -33,7 +37,6 @@ router.get("/:username/retweets", userController.showRetweets);
 // router.get("/:id", userController.show);
 // router.post("/", userController.store);
 // router.get("/editar/:id", userController.edit);
-// router.patch("/:id", userController.update);
 // router.delete("/:id", userController.destroy);
 
 module.exports = router;

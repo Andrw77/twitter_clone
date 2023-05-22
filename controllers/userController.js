@@ -1,5 +1,7 @@
 const Tweet = require("../models/Tweet");
 const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function showUserProfile(req, res) {
@@ -78,7 +80,46 @@ async function store(req, res) {
 async function edit(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  const form = formidable({
+    multiples: false,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+  });
+
+  form.parse(req, async (err, fields, files) => {
+    console.log(fields, files);
+    const { password } = fields;
+    const passwordHashed = await bcrypt.hash(password, 8);
+    console.log(files.image);
+    if (password) {
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          firstname: fields.firstname,
+          lastname: fields.lastname,
+          username: fields.username,
+          email: fields.email,
+          profileImg: files.image.newFilename,
+          password: passwordHashed,
+        },
+      );
+    } else {
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          firstname: fields.firstname,
+          lastname: fields.lastname,
+          username: fields.username,
+          email: fields.email,
+          profileImg: files.image.newFilename,
+        },
+      );
+    }
+
+    res.redirect("back");
+  });
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {

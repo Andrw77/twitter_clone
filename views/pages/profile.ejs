@@ -96,7 +96,7 @@
                       <form
                         class="mb-5"
                         method="POST"
-                        action="/auth/register"
+                        action="/users/edit?_method=PATCH"
                         enctype="multipart/form-data"
                       >
                         <div class="mb-3">
@@ -106,6 +106,7 @@
                             id="firstname"
                             name="firstname"
                             placeholder="First name"
+                            value="<%=user.firstname%>"
                           />
                         </div>
                         <div class="mb-3">
@@ -115,6 +116,7 @@
                             id="lastname"
                             name="lastname"
                             placeholder="Last name"
+                            value="<%=user.lastname%>"
                           />
                         </div>
                         <div class="mb-3">
@@ -124,6 +126,7 @@
                             id="email"
                             name="email"
                             placeholder="Email"
+                            value="<%=user.email%>"
                           />
                         </div>
                         <div class="mb-3">
@@ -133,6 +136,7 @@
                             id="username"
                             name="username"
                             placeholder="Username"
+                            value="<%=user.username%>"
                           />
                         </div>
                         <div class="mb-3">
