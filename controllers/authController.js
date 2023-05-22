@@ -43,35 +43,28 @@ async function store(req, res) {
   });
 
   form.parse(req, async (err, fields, files) => {
-    console.log(fields, files);
     const { password } = fields;
     const passwordHashed = await bcrypt.hash(password, 8);
-    const user = await User.create({
-      firstname: fields.firstname,
-      lastname: fields.lastname,
-      username: fields.username,
-      email: fields.email,
-      profileImg: files.image.newFilename,
-      password: passwordHashed,
-    });
-    if (user) {
-      req.login(user, () => res.redirect("/"));
-    } else {
-      res.redirect("back");
+    let userRegister = {};
+    try {
+      userRegister = await User.create({
+        firstname: fields.firstname,
+        lastname: fields.lastname,
+        username: fields.username,
+        email: fields.email,
+        profileImg: files.image.newFilename,
+        password: passwordHashed,
+      });
+      if (userRegister) {
+        req.login(userRegister, () => res.redirect("/"));
+        console.log("hola");
+      }
+    } catch (error) {
+      console.log("hola1");
+      return res.redirect("/auth/register?authRegisterError=1");
     }
   });
 }
-
-// const user = new User({
-//   firstname: firstname,
-//   lastname: lastname,
-//   password: passwordHashed,
-//   username: username,
-//   email: email,
-//   description: "a",
-//   profileImg: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5…",
-// });
-// await user.save();
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}

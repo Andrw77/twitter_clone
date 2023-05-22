@@ -112,3 +112,9 @@ h1 {
     display: none;
   }
 }
+.custom-confirm-button-class {
+  background-color: #1d9bf0 !important;
+  border: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
