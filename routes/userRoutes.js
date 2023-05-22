@@ -20,7 +20,7 @@ router.post("/:username/post", ensureAuthenticate, userController.store);
 
 // Retweets
 
-router.get("/:username/retweets", userController.showRetweets);
+router.get("/:username/retweets", ensureAuthenticate, userController.showRetweets);
 
 router.patch("/edit", uniqueValidator, userController.update);
 // router.post("/:username/follow", userController.follow);

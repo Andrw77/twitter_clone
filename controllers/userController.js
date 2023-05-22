@@ -15,17 +15,19 @@ async function showUserProfile(req, res) {
 
 // Display the specified resource.
 async function showFollowers(req, res) {
-  const user = req.user;
-  const userId = await User.findById(req.user.id).populate("followers");
-  const userFollowers = userId.followers;
-  res.render("pages/followers", { userFollowers, user });
+  const userProfFollowers = await User.findOne({ username: req.params.username }).populate(
+    "followers",
+  );
+  const userFollowers = userProfFollowers.followers;
+  res.render("pages/followers", { userFollowers, userProfFollowers });
 }
 
 async function showFollowing(req, res) {
-  const user = req.user;
-  const userId = await User.findById(req.user.id).populate("following");
-  const userFollowings = userId.following;
-  res.render("pages/following", { userFollowings, user });
+  const userProfFollowing = await User.findOne({ username: req.params.username }).populate(
+    "following",
+  );
+  const userFollowings = userProfFollowing.following;
+  res.render("pages/following", { userFollowings, userProfFollowing });
 }
 
 async function showRetweets(req, res) {

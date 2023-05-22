@@ -10,7 +10,7 @@
     <div class="container" style="position: relative">
       <div class="row g-0">
         <%- include("../partials/sideBarLeft") %>
-        <div id="main_content" class="d-flex flex-column flex-shrink-0 p-3 col-10 col-lg-6">
+        <div id="main_content" class="d-flex flex-column flex-shrink-0 col-10 col-lg-6">
           <!-- Header con blur -->
           <div id="header-container" class="d-flex" style="z-index: 100">
             <div id="back-link" class="me-3" style="padding-left: 0px">
@@ -217,91 +217,45 @@
             </div>
             <!-- Aquí termina el div para la "navegación del perfil" -->
           </div>
-          <!-- Aqui comienzan los tweets del usuario, debemos agregar for para poder listar los tweets -->
-          <% for (const tweet of userProf.tweets) {%>
+          <!-- Aqui comienzan los retweets del usuario, debemos agregar for para poder listar los tweets -->
           <div class="row p-3 g-0 tweet-row tweet-hover-effect">
-            <div class="d-flex col-2 justify-content-center">
-              <img class="img-fluid rounded-circle" style="width: 50px; height: 50px" src=<%=
-              userProf.profileImg.includes("http") ? userProf.profileImg : "/img/" +
-              userProf.profileImg %> alt="User image" alt="User image" />
-            </div>
+            <div class="d-flex col-2 justify-content-center"></div>
             <div class="col-10">
-              <span class="d-inline-block pb-1 pr-1 main-font"
-                ><strong><%=userProf.firstname%> <%=userProf.lastname%></strong></span
+              <svg
+                fill="#000000"
+                height="20px"
+                width="20px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 492.804 492.804"
+                xml:space="preserve"
+                stroke="#000000"
               >
-              <span>@<%=userProf.username%> - 4h</span>
-              <p class="text-left main-font"><%=tweet.body%></p>
-              <div id="likes-delete-box" class="d-flex justify-content-between">
-                <div id="likes-box" class="d-flex">
-                  <div id="likes">
-                    <form action="/users/<%=tweet.id%>/like?_method=PATCH" method="POST">
-                      <button id="like-btn" type="submit">
-                        <% if (!tweet.likes.includes(String(user.id))) { %>
-                        <i class="fa-regular fa-heart"></i>
-                        <% } else { %>
-                        <i class="fa-solid fa-heart" style="color: #fd1c6b"></i>
-                        <% } %>
-                      </button>
-                    </form>
-                  </div>
-                  <div id="likes-length">
-                    <span><%= tweet.likes.length %></span>
-                  </div>
-                </div>
-                <% if (String(user.id) === String(userProf.id)) {%>
-                <div id="delete">
-                  <button
-                    id="delete-tweet-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModalCenter"
-                  >
-                    <img
-                      src="/img/delete-emoji.svg"
-                      alt="delete"
-                      style="width: 17px; height: 17px"
-                    />
-                  </button>
-                </div>
-                <!-- modal eliminar tweet -->
-                <div
-                  class="modal fade"
-                  id="exampleModalCenter"
-                  tabindex="-1"
-                  aria-labelledby="exampleModalCenterTitle"
-                  style="display: none"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-letter modal-title fs-5" id="exampleModalCenterTitle">
-                          Are you sure you want to delete this tweet?
-                        </h1>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                          Close
-                        </button>
-                        <form action="/users/<%=tweet.id%>/delete?_method=DELETE" method="POST">
-                          <button class="btn btn-danger" type="submit">Delete tweet</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <% } %>
-              </div>
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke="#CCCCCC"
+                  stroke-width="0.120"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M482.592,381.614L288.863,69.966c-11.22-18.044-26.348-27.96-42.656-27.96c-16.32,0-31.456,9.924-42.672,27.976 L10.267,381.142c-11.216,18.04-13.316,35.268-5.94,48.564c7.432,13.38,23.36,20.728,44.864,20.752l394.608,0.3h-0.336v0.04 c19.272,0,37.56-7.316,44.984-20.652C495.824,416.89,493.808,399.666,482.592,381.614z M256.96,388.59 c-2.868,2.86-6.736,4.484-10.792,4.484c-4.048,0-7.988-1.64-10.868-4.5c-2.856-2.86-4.476-6.852-4.472-10.932 c0.008-4.056,0.956-8.024,3.82-10.86c2.924-2.888,5.404-4.54,9.26-4.54l0.72-0.008c4.04,0,8.84,1.66,11.744,4.564 c2.872,2.856,4.932,6.812,4.924,10.876C261.292,381.762,259.852,385.742,256.96,388.59z M246.216,331.398 c-4.12,0-7.94-1.6-10.852-4.512c-2.912-2.916-4.488-6.792-4.484-10.92l-1.616-139.068c0.016-8.512,5.972-15.416,13.684-15.416 h1.772c4.124,0,8.88,1.604,11.788,4.52c2.916,2.92,4.932,6.788,4.928,10.916l0.1,139.068 C261.528,324.482,254.724,331.398,246.216,331.398z"
+                      ></path>
+                    </g>
+                  </g>
+                </g></svg
+              ><strong class="ms-3">There are no retweets to show</strong>
             </div>
           </div>
-          <%}%>
-          <!-- Aqui terminan los tweets -->
         </div>
+        <!-- Aqui terminan los retweets -->
+
         <%- include("../partials/sideBarRight") %>
       </div>
     </div>
