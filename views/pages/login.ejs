@@ -47,6 +47,7 @@
                     aria-describedby="emailHelp"
                     placeholder="Username or email"
                     name="usernameOrEmail"
+                    required
                   />
                 </div>
                 <div class="mb-4">
@@ -56,6 +57,7 @@
                     id="exampleInputPassword1"
                     placeholder="Password"
                     name="password"
+                    required
                   />
                 </div>
                 <button type="submit" class="btn w-100">Login</button>
@@ -84,6 +86,9 @@
           icon: "error",
           title: "Oops...",
           text: "Invalid credentials!",
+          customClass: {
+            confirmButton: "custom-confirm-button-class",
+          },
         });
       }
     </script>
