@@ -248,8 +248,17 @@
                       </button>
                     </form>
                   </div>
-                  <div id="likes-length">
+
+                  <div class="me-4" id="likes-length">
                     <span><%= tweet.likes.length %></span>
+                  </div>
+                  <div class="me-4" id="retweets">
+                    <i class="fa-solid fa-retweet"></i>
+                    <span>0</span>
+                  </div>
+                  <div id="views">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>0</span>
                   </div>
                 </div>
                 <% if (String(user.id) === String(userProf.id)) {%>
