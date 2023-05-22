@@ -125,8 +125,9 @@ async function update(req, res) {
 async function destroy(req, res) {
   const userId = req.user._id;
   const tweetId = req.params.tweetId;
+  console.log(tweetId);
   const tweet = await Tweet.findById(tweetId);
-
+  await User.updateOne({ _id: userId }, { $pull: { tweets: tweetId } });
   if (String(tweet.author) === String(userId)) {
     await Tweet.deleteOne({ _id: tweetId });
   }

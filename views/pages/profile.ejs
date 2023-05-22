@@ -253,7 +253,7 @@
                   <button
                     id="delete-tweet-btn"
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModalCenter"
+                    data-bs-target="#<%=tweet.id%>"
                   >
                     <img
                       src="/img/delete-emoji.svg"
@@ -265,7 +265,7 @@
                 <!-- modal eliminar tweet -->
                 <div
                   class="modal fade"
-                  id="exampleModalCenter"
+                  id="<%=tweet.id%>"
                   tabindex="-1"
                   aria-labelledby="exampleModalCenterTitle"
                   style="display: none"
