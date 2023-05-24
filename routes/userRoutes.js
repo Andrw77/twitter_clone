@@ -4,14 +4,11 @@ const userController = require("../controllers/userController");
 const ensureAuthenticate = require("../middlewares/ensureAuthenticated");
 const uniqueValidator = require("../middlewares/uniqueValidator");
 
-// router.post("/createTweet", userController.createTweet);
-
 router.get("/:username/followers", ensureAuthenticate, userController.showFollowers);
-// router.get("/:username/folloing", userController.followerList);
 router.get("/:username/following", ensureAuthenticate, userController.showFollowing);
 router.get("/:username", ensureAuthenticate, userController.showUserProfile);
-router.patch("/:tweetId/like", userController.likeStore);
-router.delete("/:tweetId/delete", userController.destroy);
+router.patch("/:tweetId/like", userController.likeStore); //Pasar a tweets routes
+router.delete("/:tweetId/delete", userController.destroy); //Pasar a tweets routes
 router.patch("/:followerId/follow", userController.followingStore);
 
 // Posteos de Tweets
@@ -23,18 +20,5 @@ router.post("/:username/post", ensureAuthenticate, userController.store);
 router.get("/:username/retweets", ensureAuthenticate, userController.showRetweets);
 
 router.patch("/edit", uniqueValidator, userController.update);
-// router.post("/:username/follow", userController.follow);
-// router.post("/:username/unfollow", userController.unfollow);
-
-// router.delete("/:idTweet/delete", userController.deleteTweet);
-// router.patch("/:username/edit", userController.editTweet);
-
-//------------------------------------------------------------------------
-
-// router.get("/crear", userController.create);
-// router.get("/:id", userController.show);
-// router.post("/", userController.store);
-// router.get("/editar/:id", userController.edit);
-// router.delete("/:id", userController.destroy);
 
 module.exports = router;
